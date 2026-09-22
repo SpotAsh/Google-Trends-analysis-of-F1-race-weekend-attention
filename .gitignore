@@ -1,0 +1,28 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python Caches & Compiled Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook Autosaves & Checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS & Editor Specific Cache Files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Granular Raw Data Cache
+# (Ignores individual trend API pulls while keeping races.csv and processed/ outputs tracked)
+data/raw/trends/
+
+# Execution Logs & Local Temporary Files
+*.log
+*.tmp

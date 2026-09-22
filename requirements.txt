@@ -1,0 +1,11 @@
+pandas
+numpy
+lxml
+html5lib
+pytrends
+mlxtend
+scikit-learn
+matplotlib
+seaborn
+jupyter
+requests

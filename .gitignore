@@ -22,6 +22,7 @@ __pycache__/
 # Granular Raw Data Cache
 # (Ignores individual trend API pulls while keeping races.csv and processed/ outputs tracked)
 data/raw/trends/
+data/raw/airbnb/
 
 # Execution Logs & Local Temporary Files
 *.log

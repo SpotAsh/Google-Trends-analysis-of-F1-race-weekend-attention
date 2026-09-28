@@ -99,6 +99,105 @@ INSIDE_AIRBNB_DATA_PAGE = "https://insideairbnb.com/get-the-data/"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
 
+def find_latest_calendar_url(city_slug: str) -> str | None:
+    """
+    Finds the most recent calendar.csv.gz link for date-level availability
+    data. NOTE: calendar.csv no longer includes price (confirmed earlier),
+    but it DOES still include 'available' per listing per date — this is
+    what we use as a booking/occupancy proxy: available=False on a given
+    date suggests the listing is booked for that date (though hosts can
+    also manually block dates for other reasons — document as a limitation,
+    not treated as a perfect booking signal).
+    """
+    try:
+        resp = requests.get(INSIDE_AIRBNB_DATA_PAGE, headers=HEADERS, timeout=30)
+        resp.raise_for_status()
+        resp.encoding = "utf-8"
+    except Exception as e:
+        print(f"    [ERROR] Could not load Inside Airbnb data page: {e}")
+        return None
+
+    html = resp.text
+    if city_slug not in html.lower().replace(" ", "-"):
+        return None
+
+    import re
+    pattern = rf'(https://data\.insideairbnb\.com/[^"]*{city_slug}[^"]*calendar\.csv\.gz)'
+    matches = re.findall(pattern, html, flags=re.IGNORECASE)
+    if matches:
+        return sorted(matches)[-1]
+    return None
+
+
+def download_and_load_calendar(url: str, city_slug: str) -> pd.DataFrame:
+    gz_path = AIRBNB_DIR / f"{city_slug}_calendar.csv.gz"
+    csv_path = AIRBNB_DIR / f"{city_slug}_calendar.csv"
+
+    if not csv_path.exists():
+        resp = requests.get(url, headers=HEADERS, timeout=60)
+        resp.raise_for_status()
+
+        if resp.content[:2] != b"\x1f\x8b":
+            preview = resp.content[:200]
+            raise ValueError(
+                f"Downloaded content for {city_slug} is not a valid gzip file. "
+                f"First 200 bytes: {preview!r}"
+            )
+
+        gz_path.write_bytes(resp.content)
+        with gzip.open(gz_path, "rb") as f_in, open(csv_path, "wb") as f_out:
+            shutil.copyfileobj(f_in, f_out)
+
+    df = pd.read_csv(csv_path, low_memory=False)
+
+    if "available" not in df.columns or "date" not in df.columns:
+        raise ValueError(
+            f"'available'/'date' columns not found for {city_slug}. "
+            f"Actual columns: {list(df.columns)}"
+        )
+
+    # Inside Airbnb encodes availability as 't'/'f' strings
+    df["is_available"] = df["available"].astype(str).str.strip().str.lower() == "t"
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    return df
+
+
+def compute_occupancy_metrics(calendar_df: pd.DataFrame, race_date: pd.Timestamp) -> dict:
+    """Computes % unavailable (proxy for booked) in baseline vs race-week windows."""
+    if pd.isna(race_date):
+        return {}
+
+    baseline_mask = calendar_df["date"].between(
+        race_date - pd.Timedelta(days=60), race_date - pd.Timedelta(days=14)
+    )
+    race_week_mask = calendar_df["date"].between(
+        race_date - pd.Timedelta(days=7), race_date
+    )
+
+    if not baseline_mask.any() or not race_week_mask.any():
+        return {}
+
+    baseline_rows = calendar_df.loc[baseline_mask]
+    race_week_rows = calendar_df.loc[race_week_mask]
+
+    pct_unavail_baseline = round((~baseline_rows["is_available"]).mean(), 4)
+    pct_unavail_race_week = round((~race_week_rows["is_available"]).mean(), 4)
+
+    occupancy_surge_factor = (
+        round(pct_unavail_race_week / pct_unavail_baseline, 3)
+        if pct_unavail_baseline > 0 else None
+    )
+
+    return {
+        "has_calendar_data": True,
+        "pct_unavailable_baseline": pct_unavail_baseline,
+        "pct_unavailable_race_week": pct_unavail_race_week,
+        "occupancy_surge_factor": occupancy_surge_factor,
+        "calendar_listing_days_baseline": len(baseline_rows),
+        "calendar_listing_days_race_week": len(race_week_rows),
+    }
+
+
 def find_latest_listings_url(city_slug: str) -> str | None:
     """
     Scrape the Inside Airbnb data page for the most recent listings.csv.gz
@@ -166,8 +265,28 @@ def download_and_load_listings(url: str, city_slug: str) -> pd.DataFrame:
     return df
 
 
+def load_race_dates() -> pd.DataFrame:
+    """Reproduces the race_id/race_date cleaning from 03_preprocessing.py,
+    since race_date is NOT present in f1_anomalies_detected.csv (confirmed
+    by inspection) — only in races.csv."""
+    races_df = pd.read_csv(RAW_DIR / "races.csv")
+    races_df = races_df[
+        ~races_df["Round"].astype(str).str.contains("Source", case=False, na=False)
+    ].copy()
+    races_df["round_clean"] = races_df["Round"].astype(str).str.replace(r"\[.*?\]", "", regex=True)
+    races_df["date_clean"] = races_df["Race date"].astype(str).str.replace(r"\[.*?\]", "", regex=True)
+    races_df["round_num"] = pd.to_numeric(races_df["round_clean"], errors="coerce").astype("Int64")
+    races_df = races_df.dropna(subset=["round_num"]).copy()
+    races_df["race_id"] = races_df["season"].astype(str) + "_R" + races_df["round_num"].astype(str)
+    races_df["full_date_str"] = races_df["date_clean"] + " " + races_df["season"].astype(str)
+    races_df["race_date"] = pd.to_datetime(races_df["full_date_str"], format="%d %B %Y", errors="coerce")
+    return races_df[["race_id", "race_date"]]
+
+
 def main():
     features_df = pd.read_csv(INPUT_FEATURES_FILE)
+    if "race_date" not in features_df.columns:
+        features_df = features_df.merge(load_race_dates(), on="race_id", how="left")
 
     results = []
 
@@ -190,6 +309,12 @@ def main():
             "airbnb_price_snapshot_mean_usd": None,
             "airbnb_price_snapshot_median_usd": None,
             "airbnb_listing_count": None,
+            "has_calendar_data": False,
+            "pct_unavailable_baseline": None,
+            "pct_unavailable_race_week": None,
+            "occupancy_surge_factor": None,
+            "calendar_listing_days_baseline": None,
+            "calendar_listing_days_race_week": None,
         }
 
         if city_slug is None:
@@ -235,6 +360,29 @@ def main():
 
         results.append(record)
         time.sleep(1)  # be polite to insideairbnb.com
+
+        # --- Occupancy/booking-rate metric via calendar.csv availability ---
+        if city_slug is not None and pd.notna(race_date):
+            print(f"    Looking up calendar (occupancy) data for {city_slug}...")
+            calendar_url = find_latest_calendar_url(city_slug)
+            if calendar_url is None:
+                print(f"    No calendar.csv.gz found for '{city_slug}'.")
+            else:
+                try:
+                    calendar_df = download_and_load_calendar(calendar_url, city_slug)
+                    occ_metrics = compute_occupancy_metrics(calendar_df, race_date)
+                    if occ_metrics:
+                        record.update(occ_metrics)
+                        print(
+                            f"    Unavailable (booked) %: baseline={occ_metrics['pct_unavailable_baseline']:.1%} | "
+                            f"race week={occ_metrics['pct_unavailable_race_week']:.1%} | "
+                            f"surge factor={occ_metrics['occupancy_surge_factor']}"
+                        )
+                    else:
+                        print(f"    Calendar data exists but doesn't cover the race window for {race_id}")
+                except Exception as e:
+                    print(f"    [ERROR] Failed to process calendar for {city_slug}: {e}")
+            time.sleep(1)
 
     out_df = pd.DataFrame(results)
     out_path = RAW_DIR / "airbnb_raw.csv"

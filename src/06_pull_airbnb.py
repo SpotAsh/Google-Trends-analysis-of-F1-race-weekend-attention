@@ -66,6 +66,9 @@ CIRCUIT_TO_AIRBNB = {
     "Suzuka International Racing Course, Suzuka":               ("Suzuka", None),
     "Yas Marina Circuit, Abu Dhabi":                             ("Abu Dhabi", None),
     "Las Vegas Strip Circuit, Las Vegas":                       ("Las Vegas", "las-vegas"),
+    "Las Vegas Strip Circuit, Paradise, Nevada":                ("Las Vegas", "las-vegas"),
+    # New for 2022:
+    "Circuit Paul Ricard, Le Castellet":                        ("Le Castellet", None),  # small town, no Inside Airbnb coverage expected
 }
 
 # --- Currency conversion ---

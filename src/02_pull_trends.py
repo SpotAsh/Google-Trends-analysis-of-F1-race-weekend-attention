@@ -37,6 +37,11 @@ races_df = races_df[
 ].copy()
 races_df["Round"] = races_df["Round"].astype(str).str.replace(r"\[.*?\]", "", regex=True).str.strip()
 races_df["Race date"] = races_df["Race date"].astype(str).str.replace(r"\[.*?\]", "", regex=True).str.strip()
+# Keep only real race rows (numeric round); drops any other junk/footer rows so
+# nothing non-race is ever sent to Google Trends. Works for every season.
+races_df = races_df[pd.to_numeric(races_df["Round"], errors="coerce").notna()].copy()
+races_df["Round"] = pd.to_numeric(races_df["Round"]).astype(int).astype(str)
+races_df = races_df.reset_index(drop=True)
 
 pytrends = TrendReq(hl="en-US", tz=360)
 master_trends_list = []
@@ -88,11 +93,14 @@ for idx, row in races_df.iterrows():
     raw_file_path = RAW_TRENDS_DIR / f"trends_{race_id}.csv"
 
     if raw_file_path.exists():
-        print(f"[{idx+1}/{len(races_df)}] Skipping {race_id} ({city}) — already downloaded")
         df_single = pd.read_csv(raw_file_path)
         if not df_single.empty:
+            print(f"[{idx+1}/{len(races_df)}] Skipping {race_id} ({city}) — already downloaded")
             master_trends_list.append(df_single)
-        continue
+            continue
+        # A header-only file is a placeholder left by an earlier FAILED pull
+        # (rate limit, timeout). Retry it instead of skipping it forever.
+        print(f"[{idx+1}/{len(races_df)}] {race_id} ({city}) has an empty cache file from a failed pull — retrying")
 
     start_date = (race_date - pd.Timedelta(days=60)).strftime("%Y-%m-%d")
     end_date = (race_date + pd.Timedelta(days=30)).strftime("%Y-%m-%d")

@@ -43,7 +43,28 @@ races_df["round_num"] = pd.to_numeric(races_df["round_clean"], errors="coerce").
 races_df = races_df.dropna(subset=["round_num"]).copy()
 races_df["race_id"] = races_df["season"].astype(str) + "_R" + races_df["round_num"].astype(str)
 races_df["full_date_str"] = races_df["date_clean"] + " " + races_df["season"].astype(str)
+# Normalize whitespace first (Wikipedia can emit non-breaking spaces, which a
+# strict format string silently rejects), then parse strictly, then fall back
+# to pandas' lenient parser (the same one 02_pull_trends.py uses).
+races_df["full_date_str"] = (
+    races_df["full_date_str"]
+    .str.replace(" ", " ", regex=False)
+    .str.replace(r"\s+", " ", regex=True)
+    .str.strip()
+)
 races_df["race_date"] = pd.to_datetime(races_df["full_date_str"], format="%d %B %Y", errors="coerce")
+_lenient = pd.to_datetime(races_df["full_date_str"], errors="coerce")
+races_df["race_date"] = races_df["race_date"].fillna(_lenient)
+
+# FAIL LOUDLY: a NaT race_date silently empties that race's race-week and
+# baseline windows, which turns its spike_factor into 0 and corrupts everything
+# downstream (anomalies, correlations, FPM).
+_bad = races_df[races_df["race_date"].isna()]
+if not _bad.empty:
+    raise ValueError(
+        f"{len(_bad)} race(s) have an unparseable race_date:\n"
+        + _bad[["race_id", "Race date", "full_date_str"]].to_string(index=False)
+    )
 
 trends_df["date"] = pd.to_datetime(trends_df["date"], errors="coerce")
 
@@ -98,6 +119,17 @@ for race_id, group in merged_df.groupby("race_id"):
 
 features_df = pd.DataFrame(features_list)
 
+# SANITY GUARD: every race should have a non-zero race-week peak, because each
+# Trends pull is scaled so its own busiest day is 100. If most races show a peak
+# of 0, the date windows are broken, not the data.
+_zero_share = (features_df["race_week_peak"] == 0).mean()
+print(f"Races with race_week_peak == 0: {(features_df['race_week_peak'] == 0).sum()} / {len(features_df)}")
+if _zero_share > 0.25:
+    raise ValueError(
+        f"{_zero_share:.0%} of races have a race-week peak of 0 — the race-week window is empty "
+        "for most races. Check race_date parsing and days_to_race before continuing."
+    )
+
 # --- Z-score + anomaly candidate flag (unchanged logic) ---
 spike_mean = features_df["spike_factor"].mean()
 spike_std = features_df["spike_factor"].std()
@@ -108,6 +140,22 @@ features_df["is_anomaly_candidate"] = features_df["spike_zscore"] > 1.5
 
 
 # --- NEW: championship points-gap feature via Jolpica-F1 API ---
+# Standings are cached on disk: with ~200 races the API's hourly rate limit is
+# easy to hit on a rerun, and failures are NOT cached so a rerun fills them in.
+GAP_CACHE_FILE = RAW_DIR / "standings_gap_cache.csv"
+if GAP_CACHE_FILE.exists():
+    _c = pd.read_csv(GAP_CACHE_FILE)
+    GAP_CACHE = {(int(r.season), int(r.round)): float(r.gap) for r in _c.itertuples()}
+else:
+    GAP_CACHE = {}
+
+
+def _save_gap_cache():
+    pd.DataFrame(
+        [{"season": s, "round": r, "gap": g} for (s, r), g in sorted(GAP_CACHE.items())]
+    ).to_csv(GAP_CACHE_FILE, index=False)
+
+
 def get_championship_gap(season: int, round_num: int) -> float | None:
     """Points gap between P1 and P2 in the Drivers' Championship as of the
     round BEFORE this race. Round 1 of a season has no gap yet (preseason),
@@ -115,14 +163,28 @@ def get_championship_gap(season: int, round_num: int) -> float | None:
     not a data quality issue."""
     if round_num <= 1:
         return None
+    key = (season, round_num)
+    if key in GAP_CACHE:
+        return GAP_CACHE[key]
 
     url = f"https://api.jolpi.ca/ergast/f1/{season}/{round_num - 1}/driverStandings.json"
-    try:
-        resp = requests.get(url, timeout=20)
-        resp.raise_for_status()
-        data = resp.json()
-    except Exception as e:
-        print(f"    [WARNING] Standings fetch failed for {season} round {round_num - 1}: {e}")
+    data = None
+    for attempt in range(1, 5):
+        try:
+            resp = requests.get(url, timeout=20)
+            if resp.status_code == 429:  # rate limited: back off and retry
+                wait = 10 * attempt
+                print(f"    [RATE LIMIT] {season} round {round_num - 1}; waiting {wait}s")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            break
+        except Exception as e:
+            print(f"    [WARNING] Standings fetch failed for {season} round {round_num - 1} "
+                  f"(attempt {attempt}/4): {e}")
+            time.sleep(3 * attempt)
+    if data is None:
         return None
 
     lists = data.get("MRData", {}).get("StandingsTable", {}).get("StandingsLists", [])
@@ -135,16 +197,21 @@ def get_championship_gap(season: int, round_num: int) -> float | None:
 
     p1_pts = float(standings[0]["points"])
     p2_pts = float(standings[1]["points"])
-    return round(p1_pts - p2_pts, 1)
+    gap = round(p1_pts - p2_pts, 1)
+    GAP_CACHE[key] = gap
+    _save_gap_cache()
+    return gap
 
 
-print("\nFetching championship standings gap per race (Jolpica-F1 API)...")
+print("\nFetching championship standings gap per race (Jolpica-F1 API, cached)...")
 gaps = []
 for _, row in features_df.iterrows():
+    cached = (int(row["season"]), int(row["round_num"])) in GAP_CACHE
     gap = get_championship_gap(int(row["season"]), int(row["round_num"]))
     gaps.append(gap)
     print(f"  {row['race_id']} ({row['grand_prix']}): gap entering race = {gap}")
-    time.sleep(0.5)  # be polite to the API
+    if not cached and int(row["round_num"]) > 1:
+        time.sleep(0.5)  # be polite to the API
 
 features_df["championship_gap_entering_race"] = gaps
 

@@ -1,0 +1,7 @@
+min_support,algorithm,num_itemsets,runtime_seconds
+0.05,apriori,100,0.0035
+0.05,fpgrowth,100,0.0255
+0.1,apriori,29,0.0021
+0.1,fpgrowth,29,0.0049
+0.2,apriori,10,0.0016
+0.2,fpgrowth,10,0.004

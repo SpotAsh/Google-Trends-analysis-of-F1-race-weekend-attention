@@ -1,0 +1,7 @@
+stage,n_races,n_lost_this_stage,reason
+races.csv raw scrape,206,,Includes Wikipedia footer/source rows mixed in with real race rows.
+races.csv cleaned (footers removed),197,9.0,Removed 'Sources:[..]' footer rows and rows with unparseable round numbers.
+Matched to Google Trends data,196,1.0,"Races where Trends returned no data after all retries/fallback queries exhausted (0 after bracket-stripping fix; previously 6 races affected by a date-parsing bug, now resolved)."
+Championship gap computed,187,9.0,"Season-opening races (round 1) have no prior standings — structural, affects exactly 4 races (one per season)."
+Matched to an Airbnb city (slug assigned),43,153.0,Race's host circuit is in a city/town Inside Airbnb doesn't cover (confirmed for 13 of 25 unique circuits — mostly small towns).
+Airbnb data actually usable,36,7.0,"City had a slug assigned but no listings.csv.gz found on Inside Airbnb (confirmed: Las Vegas, São Paulo)."

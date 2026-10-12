@@ -1,0 +1,27 @@
+
+--- season ---
+season,count
+2024,24
+2025,24
+2022,22
+2023,22
+2016,21
+2019,21
+2021,21
+2018,21
+2017,20
+
+--- is_close_championship_race ---
+is_close_championship_race,count
+True,100
+False,87
+,9
+
+--- is_high_confidence_anomaly ---
+is_high_confidence_anomaly,count
+False,196
+
+--- has_listings_data ---
+has_listings_data,count
+False,160
+True,36

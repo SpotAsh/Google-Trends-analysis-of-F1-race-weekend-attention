@@ -1,0 +1,48 @@
+table,column,n_missing,pct_missing,likely_reason
+races.csv (raw),Round,0,0.0,N/A (no missing values)
+races.csv (raw),Grand Prix,0,0.0,N/A (no missing values)
+races.csv (raw),Circuit,0,0.0,N/A (no missing values)
+races.csv (raw),Race date,0,0.0,N/A (no missing values)
+races.csv (raw),season,0,0.0,N/A (no missing values)
+trends_master.csv,date,0,0.0,N/A (no missing values)
+trends_master.csv,search_interest,0,0.0,N/A (no missing values)
+trends_master.csv,race_id,0,0.0,N/A (no missing values)
+trends_master.csv,grand_prix,0,0.0,N/A (no missing values)
+trends_master.csv,season,0,0.0,N/A (no missing values)
+trends_master.csv,round,0,0.0,N/A (no missing values)
+trends_master.csv,query_used,5824,0.3265,No systematic reason identified; appears incidental.
+airbnb_raw.csv,race_id,0,0.0,N/A (no missing values)
+airbnb_raw.csv,circuit,0,0.0,N/A (no missing values)
+airbnb_raw.csv,city_matched_name,0,0.0,N/A (no missing values)
+airbnb_raw.csv,airbnb_city_slug,49,0.5326,"City has no Inside Airbnb coverage at all (confirmed: Sakhir, Baku, Zandvoort, Monaco, Spa, Imola, Jeddah, Lusail, Spielberg, Shanghai, Silverstone, Suzuka, Abu Dhabi, Le Castellet) — small towns or cities outside Inside Airbnb's covered-city list."
+airbnb_raw.csv,has_listings_data,0,0.0,N/A (no missing values)
+airbnb_raw.csv,local_currency,56,0.6087,Only populated when listings data was successfully retrieved.
+airbnb_raw.csv,airbnb_price_snapshot_mean_local,56,0.6087,Only populated when listings data was successfully retrieved (city had a slug AND a working listings.csv.gz URL was found).
+airbnb_raw.csv,airbnb_price_snapshot_median_local,56,0.6087,Same as above.
+airbnb_raw.csv,airbnb_price_snapshot_mean_usd,56,0.6087,Same as above.
+airbnb_raw.csv,airbnb_price_snapshot_median_usd,56,0.6087,Same as above.
+airbnb_raw.csv,airbnb_listing_count,56,0.6087,Same as above.
+airbnb_raw.csv,has_calendar_data,0,0.0,N/A (no missing values)
+airbnb_raw.csv,pct_unavailable_baseline,92,1.0,"Calendar snapshot data does not cover historical race-week dates (Inside Airbnb calendars are forward-looking from scrape date only) — structurally missing for all past races, not a retrieval failure."
+airbnb_raw.csv,pct_unavailable_race_week,92,1.0,Same as above.
+airbnb_raw.csv,occupancy_surge_factor,92,1.0,Same as above.
+airbnb_raw.csv,calendar_listing_days_baseline,92,1.0,No systematic reason identified; appears incidental.
+airbnb_raw.csv,calendar_listing_days_race_week,92,1.0,No systematic reason identified; appears incidental.
+f1_anomalies_detected.csv,race_id,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,season,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,round_num,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,grand_prix,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,circuit,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,race_date,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,baseline_search_mean,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,race_week_peak,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,race_week_mean,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,spike_factor,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,spike_zscore,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,is_anomaly_candidate,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,championship_gap_entering_race,9,0.0459,"Season-opening races (round 1) have no prior-round standings to compute a gap from — structural, not a retrieval failure."
+f1_anomalies_detected.csv,is_close_championship_race,9,0.0459,Same as above (derived directly from championship_gap_entering_race).
+f1_anomalies_detected.csv,iso_forest_anomaly,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,is_iso_anomaly,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,is_lof_anomaly,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,is_high_confidence_anomaly,0,0.0,N/A (no missing values)

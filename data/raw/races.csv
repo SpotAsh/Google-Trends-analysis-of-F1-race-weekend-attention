@@ -1,4 +1,114 @@
 Round,Grand Prix,Circuit,Race date,season
+1,Australian Grand Prix,"Albert Park Circuit, Melbourne",20 March,2016
+2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",3 April,2016
+3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",17 April,2016
+4,Russian Grand Prix,"Sochi Autodrom, Sochi",1 May,2016
+5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",15 May,2016
+6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",29 May,2016
+7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",12 June,2016
+8,European Grand Prix,"Baku City Circuit, Baku",19 June,2016
+9,Austrian Grand Prix,"Red Bull Ring, Spielberg",3 July,2016
+10,British Grand Prix,"Silverstone Circuit, Silverstone",10 July,2016
+11,Hungarian Grand Prix,"Hungaroring, Mogyoród",24 July,2016
+12,German Grand Prix,"Hockenheimring, Hockenheim",31 July,2016
+13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",28 August,2016
+14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",4 September,2016
+15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",18 September,2016
+16,Malaysian Grand Prix,"Sepang International Circuit, Kuala Lumpur",2 October,2016
+17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",9 October,2016
+18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",23 October,2016
+19,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",30 October,2016
+20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",13 November,2016
+21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",27 November,2016
+Source:[1],Source:[1],Source:[1],Source:[1],2016
+1,Australian Grand Prix,"Albert Park Circuit, Melbourne",26 March,2017
+2,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",9 April,2017
+3,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",16 April,2017
+4,Russian Grand Prix,"Sochi Autodrom, Sochi",30 April,2017
+5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",14 May,2017
+6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",28 May,2017
+7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",11 June,2017
+8,Azerbaijan Grand Prix,"Baku City Circuit, Baku",25 June,2017
+9,Austrian Grand Prix,"Red Bull Ring, Spielberg",9 July,2017
+10,British Grand Prix,"Silverstone Circuit, Silverstone",16 July,2017
+11,Hungarian Grand Prix,"Hungaroring, Mogyoród",30 July,2017
+12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",27 August,2017
+13,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",3 September,2017
+14,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",17 September,2017
+15,Malaysian Grand Prix,"Sepang International Circuit, Kuala Lumpur",1 October,2017
+16,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",8 October,2017
+17,United States Grand Prix,"Circuit of the Americas, Austin, Texas",22 October,2017
+18,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",29 October,2017
+19,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",12 November,2017
+20,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",26 November,2017
+Source: [65],Source: [65],Source: [65],Source: [65],2017
+1,Australian Grand Prix,"Albert Park Circuit, Melbourne",25 March,2018
+2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",8 April,2018
+3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",15 April,2018
+4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",29 April,2018
+5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",13 May,2018
+6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",27 May,2018
+7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",10 June,2018
+8,French Grand Prix,"Circuit Paul Ricard, Le Castellet",24 June,2018
+9,Austrian Grand Prix,"Red Bull Ring, Spielberg",1 July,2018
+10,British Grand Prix,"Silverstone Circuit, Silverstone",8 July,2018
+11,German Grand Prix,"Hockenheimring, Hockenheim",22 July,2018
+12,Hungarian Grand Prix,"Hungaroring, Mogyoród",29 July,2018
+13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",26 August,2018
+14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2 September,2018
+15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",16 September,2018
+16,Russian Grand Prix,"Sochi Autodrom, Sochi",30 September,2018
+17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",7 October,2018
+18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",21 October,2018
+19,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",28 October,2018
+20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",11 November,2018
+21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",25 November,2018
+Source:[35],Source:[35],Source:[35],Source:[35],2018
+1,Australian Grand Prix,"Albert Park Circuit, Melbourne",17 March,2019
+2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",31 March,2019
+3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",14 April,2019
+4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",28 April,2019
+5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",12 May,2019
+6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",26 May,2019
+7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montréal",9 June,2019
+8,French Grand Prix,"Circuit Paul Ricard, Le Castellet",23 June,2019
+9,Austrian Grand Prix,"Red Bull Ring, Spielberg",30 June,2019
+10,British Grand Prix,"Silverstone Circuit, Silverstone",14 July,2019
+11,German Grand Prix,"Hockenheimring, Hockenheim",28 July,2019
+12,Hungarian Grand Prix,"Hungaroring, Mogyoród",4 August,2019
+13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",1 September,2019
+14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",8 September,2019
+15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",22 September,2019
+16,Russian Grand Prix,"Sochi Autodrom, Sochi",29 September,2019
+17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",13 October,2019
+18,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",27 October,2019
+19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",3 November,2019
+20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",17 November,2019
+21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",1 December,2019
+Sources:[57][58][59],Sources:[57][58][59],Sources:[57][58][59],Sources:[57][58][59],2019
+1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",28 March,2021
+2,Emilia Romagna Grand Prix,"Imola Circuit, Imola",18 April,2021
+3,Portuguese Grand Prix,"Algarve International Circuit, Portimão",2 May,2021
+4,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",9 May,2021
+5,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",23 May,2021
+6,Azerbaijan Grand Prix,"Baku City Circuit, Baku",6 June,2021
+7,French Grand Prix,"Circuit Paul Ricard, Le Castellet",20 June[e],2021
+8,Styrian Grand Prix,"Red Bull Ring, Spielberg",27 June,2021
+9,Austrian Grand Prix,"Red Bull Ring, Spielberg",4 July,2021
+10,British Grand Prix,"Silverstone Circuit, Silverstone",18 July,2021
+11,Hungarian Grand Prix,"Hungaroring, Mogyoród",1 August,2021
+12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",29 August,2021
+13,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",5 September,2021
+14,Italian Grand Prix,"Monza Circuit, Monza",12 September,2021
+15,Russian Grand Prix,"Sochi Autodrom, Sochi",26 September,2021
+16,Turkish Grand Prix,"Istanbul Park, Tuzla",10 October[f],2021
+17,United States Grand Prix,"Circuit of the Americas, Austin, Texas",24 October,2021
+18,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",7 November[g],2021
+19,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",14 November[h],2021
+20,Qatar Grand Prix,"Lusail International Circuit, Lusail",21 November,2021
+21,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",5 December[i],2021
+22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",12 December[j],2021
+Sources:[65][66][67][68][69][70][71][72][73][74],Sources:[65][66][67][68][69][70][71][72][73][74],Sources:[65][66][67][68][69][70][71][72][73][74],Sources:[65][66][67][68][69][70][71][72][73][74],2021
 1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",20 March,2022
 2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",27 March,2022
 3,Australian Grand Prix,"Albert Park Circuit, Melbourne",10 April,2022

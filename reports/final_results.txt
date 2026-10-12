@@ -1,0 +1,117 @@
+======================================================================
+NEW SPIKE METRIC: DESCRIPTIVES (196 races)
+======================================================================
+                 count    mean      std    min     50%      max
+baseline_mean    196.0    0.43     0.48   0.00    0.23     2.62
+lift_pts         196.0   21.13     3.20  11.20   20.69    32.92
+lift_z           196.0   20.73     3.63   1.27   20.45    32.92
+race_week_share  196.0    0.74     0.10   0.31    0.76     1.00
+spike_factor     196.0  803.36  1175.10  34.11  293.75  4700.00
+
+Spearman(old spike_factor, baseline_mean) = -0.59  (near -1 => old metric ~ inverse baseline)
+Spearman(new lift_pts,     baseline_mean) = 0.14  (p=0.044)
+
+======================================================================
+H1: DOES CHAMPIONSHIP CLOSENESS EXPLAIN THE LIFT?
+======================================================================
+gap vs lift_pts                   Spearman rho = +0.032  p = 0.668  95% CI [-0.11, +0.17]  n = 187
+gap vs lift_z                     Spearman rho = +0.059  p = 0.420  95% CI [-0.09, +0.20]  n = 187
+gap vs race_week_share            Spearman rho = -0.104  p = 0.158  95% CI [-0.25, +0.04]  n = 187
+gap vs old log spike (reference)  Spearman rho = -0.139  p = 0.058  95% CI [-0.28, -0.00]  n = 187
+(negative rho = closer title fight -> bigger lift, the hypothesised direction)
+
+*** PRIMARY TEST (pre-specified) *** within-season (ranks inside each season) gap vs lift_pts: r = -0.061, p = 0.407, n = 187
+
+Per-season Spearman (gap vs lift_pts):
+  2016: rho = -0.26, p = 0.266, n = 20
+  2017: rho = +0.00, p = 1.000, n = 19
+  2018: rho = +0.31, p = 0.178, n = 20
+  2019: rho = +0.09, p = 0.710, n = 20
+  2021: rho = -0.07, p = 0.783, n = 20
+  2022: rho = +0.02, p = 0.922, n = 21
+  2023: rho = -0.07, p = 0.775, n = 21
+  2024: rho = -0.38, p = 0.074, n = 23
+  2025: rho = -0.14, p = 0.524, n = 23
+
+Close (<25 pts) vs not close, lift_pts: median 20.17 vs 20.89, mean 20.99 vs 20.96, n = 100 vs 87
+Mann-Whitney U = 4272, p = 0.833
+
+Threshold sensitivity (median lift_pts, close vs not close; Mann-Whitney p):
+  gap < 10: 19.94 vs 20.70  (n = 55 vs 132), p = 0.953
+  gap < 25: 20.17 vs 20.89  (n = 100 vs 87), p = 0.833
+  gap < 50: 20.03 vs 21.17  (n = 131 vs 56), p = 0.252
+
+======================================================================
+2022 CONTRAST CASE AND SEASON EFFECT
+======================================================================
+         n  median_lift  mean_lift  median_gap  median_baseline
+season                                                         
+2016    21        19.31      19.56        18.0             0.11
+2017    20        19.78      20.13        14.0             0.09
+2018    21        19.02      19.62        17.0             0.09
+2019    21        19.56      20.16        40.0             0.13
+2021    21        19.83      20.67         7.5             0.15
+2022    22        22.45      22.24        46.0             0.51
+2023    22        21.94      21.94       110.0             0.33
+2024    24        21.23      21.63        57.0             0.33
+2025    24        23.56      23.61        13.0             0.72
+
+Kruskal-Wallis across seasons (lift_pts): H = 42.82, p = 0.000
+
+Tight seasons [2021, 2025, 2017] (median gap) vs blowout seasons [2022, 2024, 2023]: median lift 20.83 vs 21.73, Mann-Whitney p = 0.147
+
+Pre-DTS (<=2018, n=62) vs post-DTS (>=2019, n=134):
+  baseline_mean    median 0.09 vs 0.29  (p = 0.006)
+  lift_pts         median 19.41 vs 21.37  (p = 0.000)
+  race_week_share  median 0.80 vs 0.74  (p = 0.001)
+  gap vs lift_pts within pre-DTS: rho = +0.013, p = 0.924, n = 59
+  gap vs lift_pts within post-DTS: rho = -0.063, p = 0.479, n = 128
+
+======================================================================
+WHAT ELSE DRIVES THE LIFT? (Spearman with lift_pts)
+======================================================================
+baseline_mean (off-season interest)    rho = +0.144  p = 0.044  n = 196
+championship_gap                       rho = +0.032  p = 0.668  n = 187
+round_num (position in season)         rho = -0.065  p = 0.363  n = 196
+is_street_circuit                      rho = -0.021  p = 0.775  n = 196
+airbnb_price_snapshot_mean_usd         rho = +0.087  p = 0.614  n = 36
+airbnb_listing_count                   rho = -0.104  p = 0.548  n = 36
+
+Joint rank regression (standardized ranks) on lift_pts, n = 187, R^2 = 0.01
+  baseline_mean                      beta = +0.117
+  championship_gap_entering_race     beta = +0.030
+  round_num                          beta = -0.019
+  is_street                          beta = -0.027
+
+======================================================================
+ANOMALIES ON THE NEW METRIC
+======================================================================
+z>1.5: 15, IsolationForest: 20, LOF: 20, flagged by all 3: 5, by >=2 of 3: 18
+ race_id                grand_prix  baseline_mean  lift_pts  lift_z  championship_gap_entering_race  n_flags
+2025_R16        Italian Grand Prix           0.83     32.92   32.92                            34.0        3
+ 2024_R7 Emilia Romagna Grand Prix           0.34     30.28   29.20                            33.0        3
+ 2022_R4 Emilia Romagna Grand Prix           0.66     30.09   23.89                            34.0        3
+2025_R21      São Paulo Grand Prix           2.02     29.10    6.94                             1.0        3
+ 2025_R7 Emilia Romagna Grand Prix           0.32     28.06   26.62                            16.0        2
+ 2024_R5        Chinese Grand Prix           0.19     27.68   27.68                            13.0        2
+ 2025_R1     Australian Grand Prix           0.87     27.38   27.38                             NaN        2
+2025_R20    Mexico City Grand Prix           0.66     26.09   26.09                            14.0        2
+2024_R19  United States Grand Prix           0.57     25.93   15.38                            52.0        3
+2025_R19  United States Grand Prix           2.62     24.76   20.72                            22.0        2
+2025_R18      Singapore Grand Prix           2.32     22.81   18.93                            25.0        2
+2023_R21      Las Vegas Grand Prix           1.38     19.62   19.62                           266.0        2
+2016_R20      Brazilian Grand Prix           0.02     16.23   16.23                            19.0        2
+2024_R21      São Paulo Grand Prix           1.06     15.44    3.00                            47.0        2
+2024_R22      Las Vegas Grand Prix           1.40     14.85   14.85                            62.0        2
+2023_R20      São Paulo Grand Prix           0.00     12.50   12.50                           251.0        2
+2025_R22      Las Vegas Grand Prix           1.32     12.31   12.31                            24.0        2
+2022_R21      São Paulo Grand Prix           1.30     11.20    1.27                           136.0        2
+
+Anomaly (>=2 of 3) x close-championship (races with a gap):
+col_0            False  True 
+is_anomaly_2of3              
+False               77     93
+True                10      7
+Fisher exact: odds ratio = 0.58, p = 0.317
+
+Saved: reports/final_race_metrics.csv, reports/final_results.txt, reports/figures/final_*.png

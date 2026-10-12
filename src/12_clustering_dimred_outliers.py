@@ -75,6 +75,11 @@ trends["date"] = pd.to_datetime(trends["date"], format="mixed", errors="coerce")
 feat = pd.read_csv(PROC / "f1_final_features.csv")
 feat["race_date"] = pd.to_datetime(feat["race_date"], errors="coerce")
 binf = pd.read_csv(PROC / "f1_binary_features.csv")
+if "is_covid_season" not in feat.columns:
+    feat["is_covid_season"] = feat["season"].astype(int) == 2020
+feat["is_covid_season"] = feat["is_covid_season"].map(
+    {True: True, False: False, "True": True, "False": False}
+).fillna(False).astype(bool)
 assert trends["date"].notna().all() and feat["race_date"].notna().all(), "unparseable dates"
 
 t = trends.merge(feat[["race_id", "race_date"]], on="race_id", how="inner")
@@ -102,10 +107,12 @@ for rid, g in t.groupby("race_id"):
 F = pd.DataFrame(rows)
 
 ctx_cols = ["race_id", "season", "round_num", "grand_prix", "circuit",
-            "championship_gap_entering_race", "is_close_championship_race"]
+            "championship_gap_entering_race", "is_close_championship_race",
+            "is_covid_season"]
 df = F.merge(feat[ctx_cols], on="race_id", how="inner").merge(
     binf[["race_id", "circuit_type_street"]], on="race_id", how="left")
 df["is_street"] = df["circuit_type_street"].fillna(False).astype(bool)
+df["is_covid_season"] = df["is_covid_season"].fillna(False).astype(bool)
 df["is_close"] = df["is_close_championship_race"].map(
     {True: True, False: False, "True": True, "False": False})
 df = df.dropna(subset=["log_baseline", "lift_pts", "race_week_share", "buildup_pts", "drop_pts"]).reset_index(drop=True)
@@ -299,14 +306,16 @@ for c in range(K):
     row = {"cluster": c, "n": len(sub), "description": describe_cluster(zmeans.loc[c]),
            "median_gap": gsub["championship_gap_entering_race"].median(),
            "share_close": (gsub["is_close"] == True).mean() if len(gsub) else np.nan,
-           "share_street": sub["is_street"].mean(), "typical_races": typ}
+           "share_street": sub["is_street"].mean(),
+           "share_covid": sub["is_covid_season"].mean(),
+           "typical_races": typ}
     for f_ in FEATS:
         row[f_ + "_mean"] = sub[f_].mean()
     prof_rows.append(row)
     say(f"\nCluster {c}  (n = {len(sub)}): {row['description']}")
     say("   means: " + ", ".join(f"{f_}={sub[f_].mean():.2f}" for f_ in FEATS))
     say(f"   median championship gap = {row['median_gap']:.0f}, share close (<25 pts) = {row['share_close']:.0%}, "
-        f"share street circuits = {row['share_street']:.0%}")
+        f"share street circuits = {row['share_street']:.0%}, share 2020 COVID = {row['share_covid']:.0%}")
     say(f"   most typical races: {typ}")
     say("   seasons: " + ", ".join(f"{int(k)}: {int(v)}" for k, v in sub["season"].value_counts().sort_index().items()))
 prof = pd.DataFrame(prof_rows)
@@ -329,6 +338,10 @@ ct = pd.crosstab(df["km"], df["is_street"])
 if ct.shape[1] == 2:
     chi, p, _, _ = stats.chi2_contingency(ct)
     say(f"  street-circuit share across clusters: chi-square = {chi:.2f}, p = {p:.3f}")
+ct = pd.crosstab(df["km"], df["is_covid_season"])
+if ct.shape[1] == 2 and ct.shape[0] >= 2:
+    chi, p, _, _ = stats.chi2_contingency(ct)
+    say(f"  2020 COVID-season share across clusters: chi-square = {chi:.2f}, p = {p:.3f}")
 
 # ---- Cluster-profile heatmap
 fig, ax = plt.subplots(figsize=(6.4, 0.9 + 0.7 * K))
@@ -614,7 +627,8 @@ fig.savefig(FIGS / "mid2_clusters_three_methods.png", bbox_inches="tight")
 plt.close(fig)
 
 # =============================================================== 5. SAVE
-assign = df[["race_id", "season", "grand_prix", "championship_gap_entering_race", "is_close"] + FEATS +
+assign = df[["race_id", "season", "grand_prix", "championship_gap_entering_race", "is_close",
+             "is_covid_season"] + FEATS +
             ["km", "ward", "dbscan", "n_flags", "is_outlier"]].copy()
 assign["pc1"], assign["pc2"] = P[:, 0], P[:, 1]
 assign["tsne1"], assign["tsne2"] = T[:, 0], T[:, 1]

@@ -45,6 +45,12 @@ df = features_df.merge(
 # a 2025 price snapshot must not be attached to a 2016 race.
 df["has_listings_data"] = df["has_listings_data"].fillna(False).astype(bool)
 
+# Optional covariate from 03; synthesize if an older features file is used.
+if "is_covid_season" not in df.columns:
+    df["is_covid_season"] = df["season"].astype(int) == 2020
+else:
+    df["is_covid_season"] = df["is_covid_season"].fillna(False).astype(bool)
+
 print(f"Combined dataset: {len(df)} races, {len(df.columns)} columns")
 
 # ---------------------------------------------------------------------------
@@ -61,7 +67,10 @@ desc_stats.to_csv(desc_stats_out)
 print(f"\nDescriptive statistics saved to: {desc_stats_out.resolve()}")
 print(desc_stats)
 
-categorical_cols = ["season", "is_close_championship_race", "is_high_confidence_anomaly", "has_listings_data"]
+categorical_cols = [
+    "season", "is_close_championship_race", "is_high_confidence_anomaly",
+    "has_listings_data", "is_covid_season",
+]
 cat_summaries = {}
 for col in categorical_cols:
     cat_summaries[col] = df[col].value_counts(dropna=False)
@@ -150,8 +159,11 @@ df["race_week_peak_log"] = np.log1p(df["race_week_peak"])
 # still used for the "is_close" threshold flag already computed in 03)
 gap_min = df["championship_gap_entering_race"].min()
 gap_max = df["championship_gap_entering_race"].max()
+gap_span = gap_max - gap_min
 df["championship_gap_minmax"] = (
-    (df["championship_gap_entering_race"] - gap_min) / (gap_max - gap_min)
+    (df["championship_gap_entering_race"] - gap_min) / gap_span
+    if pd.notna(gap_span) and gap_span != 0
+    else np.nan
 )
 
 print("\n" + "=" * 70)

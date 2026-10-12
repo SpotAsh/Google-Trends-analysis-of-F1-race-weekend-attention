@@ -1,197 +1,214 @@
-race_id,season,round_num,grand_prix,circuit,race_date,baseline_search_mean,race_week_peak,race_week_mean,spike_factor,spike_zscore,is_anomaly_candidate,championship_gap_entering_race,is_close_championship_race
-2016_R1,2016,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2016-03-20,0.83,100,23.62,120.51,-0.58,False,,
-2016_R10,2016,10,British Grand Prix,"Silverstone Circuit, Silverstone",2016-07-10,1.11,100,20.75,90.38,-0.61,False,11.0,True
-2016_R11,2016,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2016-07-24,0.06,100,19.38,1566.67,0.65,False,1.0,True
-2016_R12,2016,12,German Grand Prix,"Hockenheimring, Hockenheim",2016-07-31,0.13,100,17.62,783.33,-0.02,False,6.0,True
-2016_R13,2016,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2016-08-28,0.15,100,19.25,671.43,-0.11,False,19.0,True
-2016_R14,2016,14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2016-09-04,0.04,100,18.75,2350.0,1.32,False,9.0,True
-2016_R15,2016,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2016-09-18,0.96,100,20.25,104.44,-0.59,False,2.0,True
-2016_R16,2016,16,Malaysian Grand Prix,"Sepang International Circuit, Kuala Lumpur",2016-10-02,0.15,100,20.62,671.43,-0.11,False,8.0,True
-2016_R17,2016,17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2016-10-09,0.04,100,22.38,2350.0,1.32,False,23.0,True
-2016_R18,2016,18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2016-10-23,1.0,100,20.38,100.0,-0.6,False,33.0,False
-2016_R19,2016,19,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2016-10-30,1.0,100,18.0,100.0,-0.6,False,26.0,False
-2016_R2,2016,2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2016-04-03,0.09,100,19.75,1175.0,0.32,False,7.0,True
-2016_R20,2016,20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2016-11-13,0.02,100,16.25,4700.0,3.32,True,19.0,True
-2016_R21,2016,21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2016-11-27,1.06,100,23.12,94.0,-0.6,False,12.0,True
-2016_R3,2016,3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2016-04-17,0.02,100,21.75,4700.0,3.32,True,17.0,True
-2016_R4,2016,4,Russian Grand Prix,"Sochi Autodrom, Sochi",2016-05-01,0.02,100,18.75,4700.0,3.32,True,36.0,False
-2016_R5,2016,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2016-05-15,0.11,100,16.75,940.0,0.12,False,43.0,False
-2016_R6,2016,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2016-05-29,1.26,100,20.75,79.66,-0.62,False,39.0,False
-2016_R7,2016,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2016-06-12,0.13,100,18.0,783.33,-0.02,False,24.0,True
-2016_R8,2016,8,European Grand Prix,"Baku City Circuit, Baku",2016-06-19,0.34,100,23.75,293.75,-0.43,False,9.0,True
-2016_R9,2016,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2016-07-03,0.04,100,17.5,2350.0,1.32,False,24.0,True
-2017_R1,2017,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2017-03-26,0.91,100,26.38,109.3,-0.59,False,,
-2017_R10,2017,10,British Grand Prix,"Silverstone Circuit, Silverstone",2017-07-16,1.17,100,21.75,85.45,-0.61,False,20.0,True
-2017_R11,2017,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2017-07-30,0.09,100,18.5,1175.0,0.32,False,1.0,True
-2017_R12,2017,12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2017-08-27,0.34,100,20.38,293.75,-0.43,False,14.0,True
-2017_R13,2017,13,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2017-09-03,0.09,100,19.75,1175.0,0.32,False,7.0,True
-2017_R14,2017,14,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2017-09-17,0.81,100,20.38,123.68,-0.58,False,3.0,True
-2017_R15,2017,15,Malaysian Grand Prix,"Sepang International Circuit, Kuala Lumpur",2017-10-01,0.11,100,22.38,940.0,0.12,False,28.0,False
-2017_R16,2017,16,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2017-10-08,1.0,100,23.88,100.0,-0.6,False,34.0,False
-2017_R17,2017,17,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2017-10-22,0.15,100,20.5,671.43,-0.11,False,59.0,False
-2017_R18,2017,18,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2017-10-29,1.0,100,16.75,100.0,-0.6,False,66.0,False
-2017_R19,2017,19,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2017-11-12,0.02,100,18.38,4700.0,3.32,True,56.0,False
-2017_R2,2017,2,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2017-04-09,0.06,100,23.25,1566.67,0.65,False,7.0,True
-2017_R20,2017,20,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2017-11-26,1.36,100,22.88,73.44,-0.62,False,43.0,False
-2017_R3,2017,3,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2017-04-16,0.09,100,20.5,1175.0,0.32,False,0.0,True
-2017_R4,2017,4,Russian Grand Prix,"Sochi Autodrom, Sochi",2017-04-30,0.09,100,18.5,1175.0,0.32,False,7.0,True
-2017_R5,2017,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2017-05-14,0.15,100,19.12,671.43,-0.11,False,13.0,True
-2017_R6,2017,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2017-05-28,1.23,100,21.12,81.03,-0.61,False,6.0,True
-2017_R7,2017,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2017-06-11,0.04,100,17.5,2350.0,1.32,False,25.0,False
-2017_R8,2017,8,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2017-06-25,0.06,100,18.38,1566.67,0.65,False,12.0,True
-2017_R9,2017,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2017-07-09,0.02,100,19.12,4700.0,3.32,True,14.0,True
-2018_R1,2018,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2018-03-25,0.81,100,24.88,123.68,-0.58,False,,
-2018_R10,2018,10,British Grand Prix,"Silverstone Circuit, Silverstone",2018-07-08,1.06,100,19.88,94.0,-0.6,False,1.0,True
-2018_R11,2018,11,German Grand Prix,"Hockenheimring, Hockenheim",2018-07-22,0.02,100,17.25,4700.0,3.32,True,8.0,True
-2018_R12,2018,12,Hungarian Grand Prix,"Hungaroring, Mogyoród",2018-07-29,0.02,100,18.25,4700.0,3.32,True,17.0,True
-2018_R13,2018,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2018-08-26,0.28,100,19.12,361.54,-0.38,False,24.0,True
-2018_R14,2018,14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2018-09-02,0.06,100,17.62,1566.67,0.65,False,17.0,True
-2018_R15,2018,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2018-09-16,1.0,100,22.12,100.0,-0.6,False,30.0,False
-2018_R16,2018,16,Russian Grand Prix,"Sochi Autodrom, Sochi",2018-09-30,0.09,100,18.75,1175.0,0.32,False,40.0,False
-2018_R17,2018,17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2018-10-07,0.06,100,24.12,1566.67,0.65,False,50.0,False
-2018_R18,2018,18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2018-10-21,1.0,100,21.5,100.0,-0.6,False,67.0,False
-2018_R19,2018,19,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2018-10-28,0.02,100,17.75,4700.0,3.32,True,70.0,False
-2018_R2,2018,2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2018-04-08,0.04,100,19.62,2350.0,1.32,False,7.0,True
-2018_R20,2018,20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2018-11-11,0.11,100,19.12,940.0,0.12,False,64.0,False
-2018_R21,2018,21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2018-11-25,1.21,100,22.62,82.46,-0.61,False,81.0,False
-2018_R3,2018,3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2018-04-15,1.0,100,20.5,100.0,-0.6,False,17.0,True
-2018_R4,2018,4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2018-04-29,0.06,100,20.0,1566.67,0.65,False,9.0,True
-2018_R5,2018,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2018-05-13,0.15,100,18.25,671.43,-0.11,False,4.0,True
-2018_R6,2018,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2018-05-27,1.17,100,19.62,85.45,-0.61,False,17.0,True
-2018_R7,2018,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2018-06-10,0.09,100,18.25,1175.0,0.32,False,14.0,True
-2018_R8,2018,8,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2018-06-24,0.3,100,19.62,335.71,-0.4,False,1.0,True
-2018_R9,2018,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2018-07-01,1.0,100,19.75,100.0,-0.6,False,14.0,True
-2019_R1,2019,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2019-03-17,0.94,100,26.75,106.82,-0.59,False,,
-2019_R10,2019,10,British Grand Prix,"Silverstone Circuit, Silverstone",2019-07-14,1.06,100,20.25,94.0,-0.6,False,31.0,False
-2019_R11,2019,11,German Grand Prix,"Hockenheimring, Hockenheim",2019-07-28,0.04,100,17.12,2350.0,1.32,False,39.0,False
-2019_R12,2019,12,Hungarian Grand Prix,"Hungaroring, Mogyoród",2019-08-04,0.06,100,19.62,1566.67,0.65,False,41.0,False
-2019_R13,2019,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2019-09-01,0.38,100,20.62,261.11,-0.46,False,62.0,False
-2019_R14,2019,14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2019-09-08,0.19,100,18.25,522.22,-0.24,False,65.0,False
-2019_R15,2019,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2019-09-22,0.98,100,21.25,102.17,-0.6,False,63.0,False
-2019_R16,2019,16,Russian Grand Prix,"Sochi Autodrom, Sochi",2019-09-29,1.0,100,20.25,100.0,-0.6,False,65.0,False
-2019_R17,2019,17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2019-10-13,0.13,100,23.5,783.33,-0.02,False,73.0,False
-2019_R18,2019,18,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2019-10-27,0.02,100,18.25,4700.0,3.32,True,64.0,False
-2019_R19,2019,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2019-11-03,1.0,100,24.5,100.0,-0.6,False,74.0,False
-2019_R2,2019,2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2019-03-31,0.06,100,20.38,1566.67,0.65,False,8.0,True
-2019_R20,2019,20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2019-11-17,1.0,100,17.75,100.0,-0.6,False,67.0,False
-2019_R21,2019,21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2019-12-01,1.0,100,22.12,100.0,-0.6,False,73.0,False
-2019_R3,2019,3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2019-04-14,0.09,100,23.38,1175.0,0.32,False,1.0,True
-2019_R4,2019,4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2019-04-28,0.09,100,22.25,1175.0,0.32,False,6.0,True
-2019_R5,2019,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2019-05-12,0.43,100,19.75,235.0,-0.48,False,1.0,True
-2019_R6,2019,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2019-05-26,1.06,100,19.25,94.0,-0.6,False,7.0,True
-2019_R7,2019,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montréal",2019-06-09,0.02,100,18.5,4700.0,3.32,True,17.0,True
-2019_R8,2019,8,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2019-06-23,0.28,100,19.38,361.54,-0.38,False,29.0,False
-2019_R9,2019,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2019-06-30,0.02,100,18.0,4700.0,3.32,True,36.0,False
-2021_R1,2021,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2021-03-28,0.15,100,19.75,671.43,-0.11,False,,
-2021_R10,2021,10,British Grand Prix,"Silverstone Circuit, Silverstone",2021-07-18,0.85,100,20.12,117.5,-0.58,False,32.0,False
-2021_R11,2021,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2021-08-01,0.06,100,17.5,1566.67,0.65,False,8.0,True
-2021_R12,2021,12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2021-08-29,0.06,100,16.62,1566.67,0.65,False,8.0,True
-2021_R13,2021,13,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2021-09-05,0.3,100,21.12,335.71,-0.4,False,3.0,True
-2021_R14,2021,14,Italian Grand Prix,"Monza Circuit, Monza",2021-09-12,0.17,100,19.0,587.5,-0.18,False,3.0,True
-2021_R15,2021,15,Russian Grand Prix,"Sochi Autodrom, Sochi",2021-09-26,0.04,100,19.88,2350.0,1.32,False,5.0,True
-2021_R16,2021,16,Turkish Grand Prix,"Istanbul Park, Tuzla",2021-10-10,0.09,100,21.0,1175.0,0.32,False,2.0,True
-2021_R17,2021,17,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2021-10-24,0.23,100,23.75,427.27,-0.32,False,6.0,True
-2021_R18,2021,18,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2021-11-07,1.0,100,19.62,100.0,-0.6,False,12.0,True
-2021_R2,2021,2,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2021-04-18,0.26,100,27.0,391.67,-0.35,False,7.0,True
-2021_R20,2021,20,Qatar Grand Prix,"Lusail International Circuit, Lusail",2021-11-21,0.19,100,22.0,522.22,-0.24,False,14.0,True
-2021_R21,2021,21,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2021-12-05,0.06,100,20.88,1566.67,0.65,False,8.0,True
-2021_R22,2021,22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2021-12-12,0.28,100,26.12,361.54,-0.38,False,0.0,True
-2021_R3,2021,3,Portuguese Grand Prix,"Algarve International Circuit, Portimão",2021-05-02,0.11,100,19.75,940.0,0.12,False,1.0,True
-2021_R4,2021,4,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2021-05-09,1.0,100,19.88,100.0,-0.6,False,8.0,True
-2021_R5,2021,5,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2021-05-23,0.94,100,20.62,106.82,-0.59,False,14.0,True
-2021_R6,2021,6,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2021-06-06,0.13,100,19.88,783.33,-0.02,False,4.0,True
-2021_R7,2021,7,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2021-06-20,0.15,100,19.25,671.43,-0.11,False,4.0,True
-2021_R8,2021,8,Styrian Grand Prix,"Red Bull Ring, Spielberg",2021-06-27,0.04,100,22.38,2350.0,1.32,False,12.0,True
-2021_R9,2021,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2021-07-04,0.21,100,22.25,470.0,-0.28,False,18.0,True
-2022_R1,2022,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2022-03-20,0.51,100,24.25,195.83,-0.52,False,,
-2022_R10,2022,10,British Grand Prix,"Silverstone Circuit, Silverstone",2022-07-03,0.85,100,18.62,117.5,-0.58,False,46.0,False
-2022_R11,2022,11,Austrian Grand Prix,"Red Bull Ring, Spielberg",2022-07-10,1.0,100,22.5,100.0,-0.6,False,34.0,False
-2022_R12,2022,12,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2022-07-24,0.3,100,22.12,335.71,-0.4,False,38.0,False
-2022_R13,2022,13,Hungarian Grand Prix,"Hungaroring, Mogyoród",2022-07-31,0.26,100,21.62,391.67,-0.35,False,63.0,False
-2022_R14,2022,14,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2022-08-28,0.47,100,22.88,213.64,-0.5,False,80.0,False
-2022_R15,2022,15,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2022-09-04,0.55,100,22.75,180.77,-0.53,False,93.0,False
-2022_R16,2022,16,Italian Grand Prix,"Monza Circuit, Monza",2022-09-11,0.68,100,22.0,146.88,-0.56,False,109.0,False
-2022_R17,2022,17,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2022-10-02,1.21,100,22.75,82.46,-0.61,False,116.0,False
-2022_R18,2022,18,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2022-10-09,0.04,100,24.25,2350.0,1.32,False,104.0,False
-2022_R19,2022,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2022-10-23,0.13,100,24.62,783.33,-0.02,False,113.0,False
-2022_R2,2022,2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2022-03-27,1.0,100,23.62,100.0,-0.6,False,8.0,True
-2022_R20,2022,20,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2022-10-30,1.0,100,23.38,100.0,-0.6,False,124.0,False
-2022_R21,2022,21,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2022-11-13,1.3,100,12.5,77.05,-0.62,False,136.0,False
-2022_R22,2022,22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2022-11-20,0.94,100,25.25,106.82,-0.59,False,139.0,False
-2022_R3,2022,3,Australian Grand Prix,"Albert Park Circuit, Melbourne",2022-04-10,0.51,100,26.75,195.83,-0.52,False,12.0,True
-2022_R4,2022,4,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2022-04-24,0.66,100,30.75,151.61,-0.55,False,34.0,False
-2022_R5,2022,5,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2022-05-08,0.94,100,24.25,106.82,-0.59,False,27.0,False
-2022_R6,2022,6,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2022-05-22,0.6,100,21.25,167.86,-0.54,False,19.0,True
-2022_R7,2022,7,Monaco Grand Prix,"Circuit de Monaco, Monaco",2022-05-29,1.19,100,19.62,83.93,-0.61,False,6.0,True
-2022_R8,2022,8,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2022-06-12,0.13,100,23.5,783.33,-0.02,False,9.0,True
-2022_R9,2022,9,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2022-06-19,0.06,100,21.38,1566.67,0.65,False,21.0,True
-2023_R1,2023,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2023-03-05,0.38,100,24.62,261.11,-0.46,False,,
-2023_R10,2023,10,British Grand Prix,"Silverstone Circuit, Silverstone",2023-07-09,0.79,100,20.12,127.03,-0.58,False,81.0,False
-2023_R11,2023,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2023-07-23,0.02,100,21.5,4700.0,3.32,True,99.0,False
-2023_R12,2023,12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2023-07-30,0.28,100,25.38,361.54,-0.38,False,110.0,False
-2023_R13,2023,13,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2023-08-27,0.55,100,20.75,180.77,-0.53,False,125.0,False
-2023_R14,2023,14,Italian Grand Prix,"Monza Circuit, Monza",2023-09-03,0.38,100,18.75,261.11,-0.46,False,138.0,False
-2023_R15,2023,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2023-09-17,0.85,100,23.25,117.5,-0.58,False,145.0,False
-2023_R16,2023,16,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2023-09-24,0.17,100,24.75,587.5,-0.18,False,151.0,False
-2023_R17,2023,17,Qatar Grand Prix,"Lusail International Circuit, Lusail",2023-10-08,0.23,100,24.75,427.27,-0.32,False,177.0,False
-2023_R18,2023,18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2023-10-22,0.09,100,27.62,1175.0,0.32,False,209.0,False
-2023_R19,2023,19,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2023-10-29,1.0,100,20.12,100.0,-0.6,False,226.0,False
-2023_R2,2023,2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2023-03-19,1.0,100,23.38,100.0,-0.6,False,7.0,True
-2023_R20,2023,20,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2023-11-05,1.0,100,12.5,100.0,-0.6,False,251.0,False
-2023_R21,2023,21,Las Vegas Grand Prix,"Las Vegas Strip Circuit, Paradise, Nevada",2023-11-18,1.38,60,21.0,43.38,-0.65,False,266.0,False
-2023_R22,2023,22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2023-11-26,1.34,100,25.75,74.6,-0.62,False,276.0,False
-2023_R3,2023,3,Australian Grand Prix,"Albert Park Circuit, Melbourne",2023-04-02,0.49,100,23.25,204.35,-0.51,False,1.0,True
-2023_R4,2023,4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2023-04-30,0.43,100,27.25,235.0,-0.48,False,15.0,True
-2023_R5,2023,5,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2023-05-07,0.53,100,21.25,188.0,-0.52,False,6.0,True
-2023_R6,2023,6,Monaco Grand Prix,"Circuit de Monaco, Monaco",2023-05-28,1.06,100,21.0,94.0,-0.6,False,14.0,True
-2023_R7,2023,7,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2023-06-04,0.26,100,21.0,391.67,-0.35,False,39.0,False
-2023_R8,2023,8,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2023-06-18,0.09,100,20.75,1175.0,0.32,False,53.0,False
-2023_R9,2023,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2023-07-02,0.04,100,23.38,2350.0,1.32,False,69.0,False
-2024_R1,2024,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2024-03-02,0.7,100,25.25,142.42,-0.56,False,,
-2024_R10,2024,10,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2024-06-23,0.3,100,21.25,335.71,-0.4,False,56.0,False
-2024_R11,2024,11,Austrian Grand Prix,"Red Bull Ring, Spielberg",2024-06-30,0.06,100,20.88,1566.67,0.65,False,69.0,False
-2024_R12,2024,12,British Grand Prix,"Silverstone Circuit, Silverstone",2024-07-07,0.83,100,18.5,120.51,-0.58,False,81.0,False
-2024_R13,2024,13,Hungarian Grand Prix,"Hungaroring, Mogyoród",2024-07-21,0.11,100,21.0,940.0,0.12,False,84.0,False
-2024_R14,2024,14,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2024-07-28,0.13,100,19.75,783.33,-0.02,False,76.0,False
-2024_R15,2024,15,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2024-08-25,0.74,100,22.0,134.29,-0.57,False,78.0,False
-2024_R16,2024,16,Italian Grand Prix,"Monza Circuit, Monza",2024-09-01,0.32,100,20.0,313.33,-0.42,False,70.0,False
-2024_R17,2024,17,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2024-09-15,0.04,100,21.25,2350.0,1.32,False,62.0,False
-2024_R18,2024,18,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2024-09-22,1.34,100,25.88,74.6,-0.62,False,59.0,False
-2024_R19,2024,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2024-10-20,0.57,100,26.5,174.07,-0.54,False,52.0,False
-2024_R2,2024,2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2024-03-09,1.0,100,21.62,100.0,-0.6,False,8.0,True
-2024_R20,2024,20,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2024-10-27,1.0,100,20.0,100.0,-0.6,False,57.0,False
-2024_R21,2024,21,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2024-11-03,1.06,100,16.5,94.0,-0.6,False,47.0,False
-2024_R22,2024,22,Las Vegas Grand Prix,"Las Vegas Strip Circuit, Paradise, Nevada",2024-11-23,1.4,58,16.25,41.3,-0.65,False,62.0,False
-2024_R23,2024,23,Qatar Grand Prix,"Lusail International Circuit, Lusail",2024-12-01,0.26,100,22.12,391.67,-0.35,False,63.0,False
-2024_R24,2024,24,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2024-12-08,1.06,100,24.38,94.0,-0.6,False,80.0,False
-2024_R3,2024,3,Australian Grand Prix,"Albert Park Circuit, Melbourne",2024-03-24,0.47,100,24.25,213.64,-0.5,False,15.0,True
-2024_R4,2024,4,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2024-04-07,0.21,100,24.5,470.0,-0.28,False,4.0,True
-2024_R5,2024,5,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2024-04-21,0.19,100,27.88,522.22,-0.24,False,13.0,True
-2024_R6,2024,6,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2024-05-05,0.87,100,22.12,114.63,-0.59,False,25.0,False
-2024_R7,2024,7,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2024-05-19,0.34,100,30.62,293.75,-0.43,False,33.0,False
-2024_R8,2024,8,Monaco Grand Prix,"Circuit de Monaco, Monaco",2024-05-26,1.19,100,19.0,83.93,-0.61,False,48.0,False
-2024_R9,2024,9,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2024-06-09,0.06,100,20.0,1566.67,0.65,False,31.0,False
-2025_R1,2025,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2025-03-16,0.87,100,28.25,114.63,-0.59,False,,
-2025_R10,2025,10,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2025-06-15,0.23,100,21.75,427.27,-0.32,False,10.0,True
-2025_R11,2025,11,Austrian Grand Prix,"Red Bull Ring, Spielberg",2025-06-29,0.23,100,21.12,427.27,-0.32,False,22.0,True
-2025_R12,2025,12,British Grand Prix,"Silverstone Circuit, Silverstone",2025-07-06,0.81,100,20.0,123.68,-0.58,False,15.0,True
-2025_R13,2025,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2025-07-27,0.23,100,22.0,427.27,-0.32,False,8.0,True
-2025_R14,2025,14,Hungarian Grand Prix,"Hungaroring, Mogyoród",2025-08-03,0.15,100,24.38,671.43,-0.11,False,16.0,True
-2025_R15,2025,15,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2025-08-31,0.81,100,24.38,123.68,-0.58,False,9.0,True
-2025_R16,2025,16,Italian Grand Prix,"Monza Circuit, Monza",2025-09-07,0.83,100,33.75,120.51,-0.58,False,34.0,False
-2025_R17,2025,17,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2025-09-21,0.94,100,22.38,106.82,-0.59,False,31.0,False
-2025_R18,2025,18,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2025-10-05,2.32,100,25.12,43.12,-0.65,False,25.0,False
-2025_R19,2025,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2025-10-19,2.62,100,27.38,38.21,-0.65,False,22.0,True
-2025_R2,2025,2,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2025-03-23,1.0,100,24.38,100.0,-0.6,False,7.0,True
-2025_R20,2025,20,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2025-10-26,0.66,100,26.75,151.61,-0.55,False,14.0,True
-2025_R21,2025,21,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2025-11-09,2.02,100,31.12,49.47,-0.64,False,1.0,True
-2025_R22,2025,22,Las Vegas Grand Prix,"Las Vegas Strip Circuit, Paradise, Nevada",2025-11-22,1.32,45,13.62,34.11,-0.65,False,24.0,True
-2025_R23,2025,23,Qatar Grand Prix,"Lusail International Circuit, Lusail",2025-11-30,0.66,100,22.88,151.61,-0.55,False,24.0,True
-2025_R24,2025,24,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2025-12-07,0.74,100,27.88,134.29,-0.57,False,12.0,True
-2025_R3,2025,3,Japanese Grand Prix,"Suzuka Circuit, Suzuka",2025-04-06,0.23,100,28.0,427.27,-0.32,False,8.0,True
-2025_R4,2025,4,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2025-04-13,0.7,100,24.25,142.42,-0.56,False,1.0,True
-2025_R5,2025,5,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2025-04-20,1.0,100,24.88,100.0,-0.6,False,3.0,True
-2025_R6,2025,6,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2025-05-04,1.0,100,22.38,100.0,-0.6,False,10.0,True
-2025_R7,2025,7,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2025-05-18,0.32,100,28.38,313.33,-0.42,False,16.0,True
-2025_R8,2025,8,Monaco Grand Prix,"Circuit de Monaco, Monaco",2025-05-25,1.15,100,20.5,87.04,-0.61,False,13.0,True
-2025_R9,2025,9,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2025-06-01,0.45,100,20.38,223.81,-0.49,False,3.0,True
+race_id,season,round_num,grand_prix,circuit,race_date,is_covid_season,baseline_search_mean,race_week_peak,race_week_mean,spike_factor,spike_zscore,is_anomaly_candidate,championship_gap_entering_race,is_close_championship_race
+2016_R1,2016,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2016-03-20,False,0.83,100,23.62,120.51,-0.54,False,,
+2016_R10,2016,10,British Grand Prix,"Silverstone Circuit, Silverstone",2016-07-10,False,1.11,100,20.75,90.38,-0.57,False,11.0,True
+2016_R11,2016,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2016-07-24,False,0.06,100,19.38,1566.67,0.72,False,1.0,True
+2016_R12,2016,12,German Grand Prix,"Hockenheimring, Hockenheim",2016-07-31,False,0.13,100,17.62,783.33,0.04,False,6.0,True
+2016_R13,2016,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2016-08-28,False,0.15,100,19.25,671.43,-0.06,False,19.0,True
+2016_R14,2016,14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2016-09-04,False,0.04,100,18.75,2350.0,1.4,False,9.0,True
+2016_R15,2016,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2016-09-18,False,0.96,100,20.25,104.44,-0.55,False,2.0,True
+2016_R16,2016,16,Malaysian Grand Prix,"Sepang International Circuit, Kuala Lumpur",2016-10-02,False,0.15,100,20.62,671.43,-0.06,False,8.0,True
+2016_R17,2016,17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2016-10-09,False,0.04,100,22.38,2350.0,1.4,False,23.0,True
+2016_R18,2016,18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2016-10-23,False,1.0,100,20.38,100.0,-0.56,False,33.0,False
+2016_R19,2016,19,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2016-10-30,False,1.0,100,18.0,100.0,-0.56,False,26.0,False
+2016_R2,2016,2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2016-04-03,False,0.09,100,19.75,1175.0,0.38,False,7.0,True
+2016_R20,2016,20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2016-11-13,False,0.02,100,16.25,4700.0,3.45,True,19.0,True
+2016_R21,2016,21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2016-11-27,False,1.06,100,23.12,94.0,-0.56,False,12.0,True
+2016_R3,2016,3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2016-04-17,False,0.02,100,21.75,4700.0,3.45,True,17.0,True
+2016_R4,2016,4,Russian Grand Prix,"Sochi Autodrom, Sochi",2016-05-01,False,0.02,100,18.75,4700.0,3.45,True,36.0,False
+2016_R5,2016,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2016-05-15,False,0.11,100,16.75,940.0,0.17,False,43.0,False
+2016_R6,2016,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2016-05-29,False,1.26,100,20.75,79.66,-0.57,False,39.0,False
+2016_R7,2016,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2016-06-12,False,0.13,100,18.0,783.33,0.04,False,24.0,True
+2016_R8,2016,8,European Grand Prix,"Baku City Circuit, Baku",2016-06-19,False,0.34,100,23.75,293.75,-0.39,False,9.0,True
+2016_R9,2016,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2016-07-03,False,0.04,100,17.5,2350.0,1.4,False,24.0,True
+2017_R1,2017,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2017-03-26,False,0.91,100,26.38,109.3,-0.55,False,,
+2017_R10,2017,10,British Grand Prix,"Silverstone Circuit, Silverstone",2017-07-16,False,1.17,100,21.75,85.45,-0.57,False,20.0,True
+2017_R11,2017,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2017-07-30,False,0.09,100,18.5,1175.0,0.38,False,1.0,True
+2017_R12,2017,12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2017-08-27,False,0.34,100,20.38,293.75,-0.39,False,14.0,True
+2017_R13,2017,13,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2017-09-03,False,0.09,100,19.75,1175.0,0.38,False,7.0,True
+2017_R14,2017,14,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2017-09-17,False,0.81,100,20.38,123.68,-0.54,False,3.0,True
+2017_R15,2017,15,Malaysian Grand Prix,"Sepang International Circuit, Kuala Lumpur",2017-10-01,False,0.11,100,22.38,940.0,0.17,False,28.0,False
+2017_R16,2017,16,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2017-10-08,False,1.0,100,23.88,100.0,-0.56,False,34.0,False
+2017_R17,2017,17,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2017-10-22,False,0.15,100,20.5,671.43,-0.06,False,59.0,False
+2017_R18,2017,18,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2017-10-29,False,1.0,100,16.75,100.0,-0.56,False,66.0,False
+2017_R19,2017,19,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2017-11-12,False,0.02,100,18.38,4700.0,3.45,True,56.0,False
+2017_R2,2017,2,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2017-04-09,False,0.06,100,23.25,1566.67,0.72,False,7.0,True
+2017_R20,2017,20,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2017-11-26,False,1.36,100,22.88,73.44,-0.58,False,43.0,False
+2017_R3,2017,3,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2017-04-16,False,0.09,100,20.5,1175.0,0.38,False,0.0,True
+2017_R4,2017,4,Russian Grand Prix,"Sochi Autodrom, Sochi",2017-04-30,False,0.09,100,18.5,1175.0,0.38,False,7.0,True
+2017_R5,2017,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2017-05-14,False,0.15,100,19.12,671.43,-0.06,False,13.0,True
+2017_R6,2017,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2017-05-28,False,1.23,100,21.12,81.03,-0.57,False,6.0,True
+2017_R7,2017,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2017-06-11,False,0.04,100,17.5,2350.0,1.4,False,25.0,False
+2017_R8,2017,8,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2017-06-25,False,0.06,100,18.38,1566.67,0.72,False,12.0,True
+2017_R9,2017,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2017-07-09,False,0.02,100,19.12,4700.0,3.45,True,14.0,True
+2018_R1,2018,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2018-03-25,False,0.81,100,24.88,123.68,-0.54,False,,
+2018_R10,2018,10,British Grand Prix,"Silverstone Circuit, Silverstone",2018-07-08,False,1.06,100,19.88,94.0,-0.56,False,1.0,True
+2018_R11,2018,11,German Grand Prix,"Hockenheimring, Hockenheim",2018-07-22,False,0.02,100,17.25,4700.0,3.45,True,8.0,True
+2018_R12,2018,12,Hungarian Grand Prix,"Hungaroring, Mogyoród",2018-07-29,False,0.02,100,18.25,4700.0,3.45,True,17.0,True
+2018_R13,2018,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2018-08-26,False,0.28,100,19.12,361.54,-0.33,False,24.0,True
+2018_R14,2018,14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2018-09-02,False,0.06,100,17.62,1566.67,0.72,False,17.0,True
+2018_R15,2018,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2018-09-16,False,1.0,100,22.12,100.0,-0.56,False,30.0,False
+2018_R16,2018,16,Russian Grand Prix,"Sochi Autodrom, Sochi",2018-09-30,False,0.09,100,18.75,1175.0,0.38,False,40.0,False
+2018_R17,2018,17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2018-10-07,False,0.06,100,24.12,1566.67,0.72,False,50.0,False
+2018_R18,2018,18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2018-10-21,False,1.0,100,21.5,100.0,-0.56,False,67.0,False
+2018_R19,2018,19,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2018-10-28,False,0.02,100,17.75,4700.0,3.45,True,70.0,False
+2018_R2,2018,2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2018-04-08,False,0.04,100,19.62,2350.0,1.4,False,7.0,True
+2018_R20,2018,20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2018-11-11,False,0.11,100,19.12,940.0,0.17,False,64.0,False
+2018_R21,2018,21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2018-11-25,False,1.21,100,22.62,82.46,-0.57,False,81.0,False
+2018_R3,2018,3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2018-04-15,False,1.0,100,20.5,100.0,-0.56,False,17.0,True
+2018_R4,2018,4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2018-04-29,False,0.06,100,20.0,1566.67,0.72,False,9.0,True
+2018_R5,2018,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2018-05-13,False,0.15,100,18.25,671.43,-0.06,False,4.0,True
+2018_R6,2018,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2018-05-27,False,1.17,100,19.62,85.45,-0.57,False,17.0,True
+2018_R7,2018,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2018-06-10,False,0.09,100,18.25,1175.0,0.38,False,14.0,True
+2018_R8,2018,8,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2018-06-24,False,0.3,100,19.62,335.71,-0.35,False,1.0,True
+2018_R9,2018,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2018-07-01,False,1.0,100,19.75,100.0,-0.56,False,14.0,True
+2019_R1,2019,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2019-03-17,False,0.94,100,26.75,106.82,-0.55,False,,
+2019_R10,2019,10,British Grand Prix,"Silverstone Circuit, Silverstone",2019-07-14,False,1.06,100,20.25,94.0,-0.56,False,31.0,False
+2019_R11,2019,11,German Grand Prix,"Hockenheimring, Hockenheim",2019-07-28,False,0.04,100,17.12,2350.0,1.4,False,39.0,False
+2019_R12,2019,12,Hungarian Grand Prix,"Hungaroring, Mogyoród",2019-08-04,False,0.06,100,19.62,1566.67,0.72,False,41.0,False
+2019_R13,2019,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2019-09-01,False,0.38,100,20.62,261.11,-0.42,False,62.0,False
+2019_R14,2019,14,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2019-09-08,False,0.19,100,18.25,522.22,-0.19,False,65.0,False
+2019_R15,2019,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2019-09-22,False,0.98,100,21.25,102.17,-0.55,False,63.0,False
+2019_R16,2019,16,Russian Grand Prix,"Sochi Autodrom, Sochi",2019-09-29,False,1.0,100,20.25,100.0,-0.56,False,65.0,False
+2019_R17,2019,17,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2019-10-13,False,0.13,100,23.5,783.33,0.04,False,73.0,False
+2019_R18,2019,18,Mexican Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2019-10-27,False,0.02,100,18.25,4700.0,3.45,True,64.0,False
+2019_R19,2019,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2019-11-03,False,1.0,100,24.5,100.0,-0.56,False,74.0,False
+2019_R2,2019,2,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2019-03-31,False,0.06,100,20.38,1566.67,0.72,False,8.0,True
+2019_R20,2019,20,Brazilian Grand Prix,"Autódromo José Carlos Pace, São Paulo",2019-11-17,False,1.0,100,17.75,100.0,-0.56,False,67.0,False
+2019_R21,2019,21,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2019-12-01,False,1.0,100,22.12,100.0,-0.56,False,73.0,False
+2019_R3,2019,3,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2019-04-14,False,0.09,100,23.38,1175.0,0.38,False,1.0,True
+2019_R4,2019,4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2019-04-28,False,0.09,100,22.25,1175.0,0.38,False,6.0,True
+2019_R5,2019,5,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2019-05-12,False,0.43,100,19.75,235.0,-0.44,False,1.0,True
+2019_R6,2019,6,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2019-05-26,False,1.06,100,19.25,94.0,-0.56,False,7.0,True
+2019_R7,2019,7,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montréal",2019-06-09,False,0.02,100,18.5,4700.0,3.45,True,17.0,True
+2019_R8,2019,8,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2019-06-23,False,0.28,100,19.38,361.54,-0.33,False,29.0,False
+2019_R9,2019,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2019-06-30,False,0.02,100,18.0,4700.0,3.45,True,36.0,False
+2020_R1,2020,1,Austrian Grand Prix,"Red Bull Ring, Spielberg",2020-07-05,True,1.0,0,0.0,0.0,-0.64,False,,
+2020_R10,2020,10,Russian Grand Prix,"Sochi Autodrom, Sochi",2020-09-27,True,1.0,0,0.0,0.0,-0.64,False,55.0,False
+2020_R11,2020,11,Eifel Grand Prix,"Nürburgring, Nürburg",2020-10-11,True,1.0,0,0.0,0.0,-0.64,False,44.0,False
+2020_R12,2020,12,Portuguese Grand Prix,"Autódromo Internacional do Algarve, Portimão",2020-10-25,True,1.0,0,0.0,0.0,-0.64,False,69.0,False
+2020_R13,2020,13,Emilia Romagna Grand Prix,"Autodromo Internazionale Enzo e Dino Ferrari, Imola",2020-11-01,True,1.0,0,0.0,0.0,-0.64,False,77.0,False
+2020_R14,2020,14,Turkish Grand Prix,"Istanbul Park, Tuzla",2020-11-15,True,1.0,0,0.0,0.0,-0.64,False,85.0,False
+2020_R15,2020,15,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir[j]",2020-11-29,True,1.0,0,0.0,0.0,-0.64,False,110.0,False
+2020_R16,2020,16,Sakhir Grand Prix,"Bahrain International Circuit, Sakhir[j]",2020-12-06,True,1.0,0,0.0,0.0,-0.64,False,131.0,False
+2020_R17,2020,17,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2020-12-13,True,1.0,0,0.0,0.0,-0.64,False,127.0,False
+2020_R2,2020,2,Styrian Grand Prix,"Red Bull Ring, Spielberg",2020-07-12,True,1.0,0,0.0,0.0,-0.64,False,7.0,True
+2020_R3,2020,3,Hungarian Grand Prix,"Hungaroring, Mogyoród",2020-07-19,True,1.0,0,0.0,0.0,-0.64,False,6.0,True
+2020_R4,2020,4,British Grand Prix,"Silverstone Circuit, Silverstone",2020-08-02,True,1.0,0,0.0,0.0,-0.64,False,5.0,True
+2020_R5,2020,5,70th Anniversary Grand Prix,"Silverstone Circuit, Silverstone",2020-08-09,True,1.0,0,0.0,0.0,-0.64,False,30.0,False
+2020_R6,2020,6,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2020-08-16,True,1.0,0,0.0,0.0,-0.64,False,30.0,False
+2020_R7,2020,7,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2020-08-30,True,1.0,0,0.0,0.0,-0.64,False,37.0,False
+2020_R8,2020,8,Italian Grand Prix,"Autodromo Nazionale di Monza, Monza",2020-09-06,True,1.0,0,0.0,0.0,-0.64,False,47.0,False
+2020_R9,2020,9,Tuscan Grand Prix,"Autodromo Internazionale del Mugello, Scarperia e San Piero",2020-09-13,True,1.0,0,0.0,0.0,-0.64,False,47.0,False
+2021_R1,2021,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2021-03-28,False,0.15,100,19.75,671.43,-0.06,False,,
+2021_R10,2021,10,British Grand Prix,"Silverstone Circuit, Silverstone",2021-07-18,False,0.85,100,20.12,117.5,-0.54,False,32.0,False
+2021_R11,2021,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2021-08-01,False,0.06,100,17.5,1566.67,0.72,False,8.0,True
+2021_R12,2021,12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2021-08-29,False,0.06,100,16.62,1566.67,0.72,False,8.0,True
+2021_R13,2021,13,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2021-09-05,False,0.3,100,21.12,335.71,-0.35,False,3.0,True
+2021_R14,2021,14,Italian Grand Prix,"Monza Circuit, Monza",2021-09-12,False,0.17,100,19.0,587.5,-0.13,False,3.0,True
+2021_R15,2021,15,Russian Grand Prix,"Sochi Autodrom, Sochi",2021-09-26,False,0.04,100,19.88,2350.0,1.4,False,5.0,True
+2021_R16,2021,16,Turkish Grand Prix,"Istanbul Park, Tuzla",2021-10-10,False,0.09,100,21.0,1175.0,0.38,False,2.0,True
+2021_R17,2021,17,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2021-10-24,False,0.23,100,23.75,427.27,-0.27,False,6.0,True
+2021_R18,2021,18,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2021-11-07,False,1.0,100,19.62,100.0,-0.56,False,12.0,True
+2021_R2,2021,2,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2021-04-18,False,0.26,100,27.0,391.67,-0.3,False,7.0,True
+2021_R20,2021,20,Qatar Grand Prix,"Lusail International Circuit, Lusail",2021-11-21,False,0.19,100,22.0,522.22,-0.19,False,14.0,True
+2021_R21,2021,21,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2021-12-05,False,0.06,100,20.88,1566.67,0.72,False,8.0,True
+2021_R22,2021,22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2021-12-12,False,0.28,100,26.12,361.54,-0.33,False,0.0,True
+2021_R3,2021,3,Portuguese Grand Prix,"Algarve International Circuit, Portimão",2021-05-02,False,0.11,100,19.75,940.0,0.17,False,1.0,True
+2021_R4,2021,4,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2021-05-09,False,1.0,100,19.88,100.0,-0.56,False,8.0,True
+2021_R5,2021,5,Monaco Grand Prix,"Circuit de Monaco, Monte Carlo",2021-05-23,False,0.94,100,20.62,106.82,-0.55,False,14.0,True
+2021_R6,2021,6,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2021-06-06,False,0.13,100,19.88,783.33,0.04,False,4.0,True
+2021_R7,2021,7,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2021-06-20,False,0.15,100,19.25,671.43,-0.06,False,4.0,True
+2021_R8,2021,8,Styrian Grand Prix,"Red Bull Ring, Spielberg",2021-06-27,False,0.04,100,22.38,2350.0,1.4,False,12.0,True
+2021_R9,2021,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2021-07-04,False,0.21,100,22.25,470.0,-0.23,False,18.0,True
+2022_R1,2022,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2022-03-20,False,0.51,100,24.25,195.83,-0.47,False,,
+2022_R10,2022,10,British Grand Prix,"Silverstone Circuit, Silverstone",2022-07-03,False,0.85,100,18.62,117.5,-0.54,False,46.0,False
+2022_R11,2022,11,Austrian Grand Prix,"Red Bull Ring, Spielberg",2022-07-10,False,1.0,100,22.5,100.0,-0.56,False,34.0,False
+2022_R12,2022,12,French Grand Prix,"Circuit Paul Ricard, Le Castellet",2022-07-24,False,0.3,100,22.12,335.71,-0.35,False,38.0,False
+2022_R13,2022,13,Hungarian Grand Prix,"Hungaroring, Mogyoród",2022-07-31,False,0.26,100,21.62,391.67,-0.3,False,63.0,False
+2022_R14,2022,14,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2022-08-28,False,0.47,100,22.88,213.64,-0.46,False,80.0,False
+2022_R15,2022,15,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2022-09-04,False,0.55,100,22.75,180.77,-0.49,False,93.0,False
+2022_R16,2022,16,Italian Grand Prix,"Monza Circuit, Monza",2022-09-11,False,0.68,100,22.0,146.88,-0.52,False,109.0,False
+2022_R17,2022,17,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2022-10-02,False,1.21,100,22.75,82.46,-0.57,False,116.0,False
+2022_R18,2022,18,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2022-10-09,False,0.04,100,24.25,2350.0,1.4,False,104.0,False
+2022_R19,2022,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2022-10-23,False,0.13,100,24.62,783.33,0.04,False,113.0,False
+2022_R2,2022,2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2022-03-27,False,1.0,100,23.62,100.0,-0.56,False,8.0,True
+2022_R20,2022,20,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2022-10-30,False,1.0,100,23.38,100.0,-0.56,False,124.0,False
+2022_R21,2022,21,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2022-11-13,False,1.3,100,12.5,77.05,-0.58,False,136.0,False
+2022_R22,2022,22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2022-11-20,False,0.94,100,25.25,106.82,-0.55,False,139.0,False
+2022_R3,2022,3,Australian Grand Prix,"Albert Park Circuit, Melbourne",2022-04-10,False,0.51,100,26.75,195.83,-0.47,False,12.0,True
+2022_R4,2022,4,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2022-04-24,False,0.66,100,30.75,151.61,-0.51,False,34.0,False
+2022_R5,2022,5,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2022-05-08,False,0.94,100,24.25,106.82,-0.55,False,27.0,False
+2022_R6,2022,6,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2022-05-22,False,0.6,100,21.25,167.86,-0.5,False,19.0,True
+2022_R7,2022,7,Monaco Grand Prix,"Circuit de Monaco, Monaco",2022-05-29,False,1.19,100,19.62,83.93,-0.57,False,6.0,True
+2022_R8,2022,8,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2022-06-12,False,0.13,100,23.5,783.33,0.04,False,9.0,True
+2022_R9,2022,9,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2022-06-19,False,0.06,100,21.38,1566.67,0.72,False,21.0,True
+2023_R1,2023,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2023-03-05,False,0.38,100,24.62,261.11,-0.42,False,,
+2023_R10,2023,10,British Grand Prix,"Silverstone Circuit, Silverstone",2023-07-09,False,0.79,100,20.12,127.03,-0.53,False,81.0,False
+2023_R11,2023,11,Hungarian Grand Prix,"Hungaroring, Mogyoród",2023-07-23,False,0.02,100,21.5,4700.0,3.45,True,99.0,False
+2023_R12,2023,12,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2023-07-30,False,0.28,100,25.38,361.54,-0.33,False,110.0,False
+2023_R13,2023,13,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2023-08-27,False,0.55,100,20.75,180.77,-0.49,False,125.0,False
+2023_R14,2023,14,Italian Grand Prix,"Monza Circuit, Monza",2023-09-03,False,0.38,100,18.75,261.11,-0.42,False,138.0,False
+2023_R15,2023,15,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2023-09-17,False,0.85,100,23.25,117.5,-0.54,False,145.0,False
+2023_R16,2023,16,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2023-09-24,False,0.17,100,24.75,587.5,-0.13,False,151.0,False
+2023_R17,2023,17,Qatar Grand Prix,"Lusail International Circuit, Lusail",2023-10-08,False,0.23,100,24.75,427.27,-0.27,False,177.0,False
+2023_R18,2023,18,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2023-10-22,False,0.09,100,27.62,1175.0,0.38,False,209.0,False
+2023_R19,2023,19,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2023-10-29,False,1.0,100,20.12,100.0,-0.56,False,226.0,False
+2023_R2,2023,2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2023-03-19,False,1.0,100,23.38,100.0,-0.56,False,7.0,True
+2023_R20,2023,20,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2023-11-05,False,1.0,100,12.5,100.0,-0.56,False,251.0,False
+2023_R21,2023,21,Las Vegas Grand Prix,"Las Vegas Strip Circuit, Paradise, Nevada",2023-11-18,False,1.38,60,21.0,43.38,-0.61,False,266.0,False
+2023_R22,2023,22,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2023-11-26,False,1.34,100,25.75,74.6,-0.58,False,276.0,False
+2023_R3,2023,3,Australian Grand Prix,"Albert Park Circuit, Melbourne",2023-04-02,False,0.49,100,23.25,204.35,-0.47,False,1.0,True
+2023_R4,2023,4,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2023-04-30,False,0.43,100,27.25,235.0,-0.44,False,15.0,True
+2023_R5,2023,5,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2023-05-07,False,0.53,100,21.25,188.0,-0.48,False,6.0,True
+2023_R6,2023,6,Monaco Grand Prix,"Circuit de Monaco, Monaco",2023-05-28,False,1.06,100,21.0,94.0,-0.56,False,14.0,True
+2023_R7,2023,7,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2023-06-04,False,0.26,100,21.0,391.67,-0.3,False,39.0,False
+2023_R8,2023,8,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2023-06-18,False,0.09,100,20.75,1175.0,0.38,False,53.0,False
+2023_R9,2023,9,Austrian Grand Prix,"Red Bull Ring, Spielberg",2023-07-02,False,0.04,100,23.38,2350.0,1.4,False,69.0,False
+2024_R1,2024,1,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2024-03-02,False,0.7,100,25.25,142.42,-0.52,False,,
+2024_R10,2024,10,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2024-06-23,False,0.3,100,21.25,335.71,-0.35,False,56.0,False
+2024_R11,2024,11,Austrian Grand Prix,"Red Bull Ring, Spielberg",2024-06-30,False,0.06,100,20.88,1566.67,0.72,False,69.0,False
+2024_R12,2024,12,British Grand Prix,"Silverstone Circuit, Silverstone",2024-07-07,False,0.83,100,18.5,120.51,-0.54,False,81.0,False
+2024_R13,2024,13,Hungarian Grand Prix,"Hungaroring, Mogyoród",2024-07-21,False,0.11,100,21.0,940.0,0.17,False,84.0,False
+2024_R14,2024,14,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2024-07-28,False,0.13,100,19.75,783.33,0.04,False,76.0,False
+2024_R15,2024,15,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2024-08-25,False,0.74,100,22.0,134.29,-0.53,False,78.0,False
+2024_R16,2024,16,Italian Grand Prix,"Monza Circuit, Monza",2024-09-01,False,0.32,100,20.0,313.33,-0.37,False,70.0,False
+2024_R17,2024,17,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2024-09-15,False,0.04,100,21.25,2350.0,1.4,False,62.0,False
+2024_R18,2024,18,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2024-09-22,False,1.34,100,25.88,74.6,-0.58,False,59.0,False
+2024_R19,2024,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2024-10-20,False,0.57,100,26.5,174.07,-0.49,False,52.0,False
+2024_R2,2024,2,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2024-03-09,False,1.0,100,21.62,100.0,-0.56,False,8.0,True
+2024_R20,2024,20,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2024-10-27,False,1.0,100,20.0,100.0,-0.56,False,57.0,False
+2024_R21,2024,21,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2024-11-03,False,1.06,100,16.5,94.0,-0.56,False,47.0,False
+2024_R22,2024,22,Las Vegas Grand Prix,"Las Vegas Strip Circuit, Paradise, Nevada",2024-11-23,False,1.4,58,16.25,41.3,-0.61,False,62.0,False
+2024_R23,2024,23,Qatar Grand Prix,"Lusail International Circuit, Lusail",2024-12-01,False,0.26,100,22.12,391.67,-0.3,False,63.0,False
+2024_R24,2024,24,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2024-12-08,False,1.06,100,24.38,94.0,-0.56,False,80.0,False
+2024_R3,2024,3,Australian Grand Prix,"Albert Park Circuit, Melbourne",2024-03-24,False,0.47,100,24.25,213.64,-0.46,False,15.0,True
+2024_R4,2024,4,Japanese Grand Prix,"Suzuka International Racing Course, Suzuka",2024-04-07,False,0.21,100,24.5,470.0,-0.23,False,4.0,True
+2024_R5,2024,5,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2024-04-21,False,0.19,100,27.88,522.22,-0.19,False,13.0,True
+2024_R6,2024,6,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2024-05-05,False,0.87,100,22.12,114.63,-0.54,False,25.0,False
+2024_R7,2024,7,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2024-05-19,False,0.34,100,30.62,293.75,-0.39,False,33.0,False
+2024_R8,2024,8,Monaco Grand Prix,"Circuit de Monaco, Monaco",2024-05-26,False,1.19,100,19.0,83.93,-0.57,False,48.0,False
+2024_R9,2024,9,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2024-06-09,False,0.06,100,20.0,1566.67,0.72,False,31.0,False
+2025_R1,2025,1,Australian Grand Prix,"Albert Park Circuit, Melbourne",2025-03-16,False,0.87,100,28.25,114.63,-0.54,False,,
+2025_R10,2025,10,Canadian Grand Prix,"Circuit Gilles Villeneuve, Montreal",2025-06-15,False,0.23,100,21.75,427.27,-0.27,False,10.0,True
+2025_R11,2025,11,Austrian Grand Prix,"Red Bull Ring, Spielberg",2025-06-29,False,0.23,100,21.12,427.27,-0.27,False,22.0,True
+2025_R12,2025,12,British Grand Prix,"Silverstone Circuit, Silverstone",2025-07-06,False,0.81,100,20.0,123.68,-0.54,False,15.0,True
+2025_R13,2025,13,Belgian Grand Prix,"Circuit de Spa-Francorchamps, Stavelot",2025-07-27,False,0.23,100,22.0,427.27,-0.27,False,8.0,True
+2025_R14,2025,14,Hungarian Grand Prix,"Hungaroring, Mogyoród",2025-08-03,False,0.15,100,24.38,671.43,-0.06,False,16.0,True
+2025_R15,2025,15,Dutch Grand Prix,"Circuit Zandvoort, Zandvoort",2025-08-31,False,0.81,100,24.38,123.68,-0.54,False,9.0,True
+2025_R16,2025,16,Italian Grand Prix,"Monza Circuit, Monza",2025-09-07,False,0.83,100,33.75,120.51,-0.54,False,34.0,False
+2025_R17,2025,17,Azerbaijan Grand Prix,"Baku City Circuit, Baku",2025-09-21,False,0.94,100,22.38,106.82,-0.55,False,31.0,False
+2025_R18,2025,18,Singapore Grand Prix,"Marina Bay Street Circuit, Singapore",2025-10-05,False,2.32,100,25.12,43.12,-0.61,False,25.0,False
+2025_R19,2025,19,United States Grand Prix,"Circuit of the Americas, Austin, Texas",2025-10-19,False,2.62,100,27.38,38.21,-0.61,False,22.0,True
+2025_R2,2025,2,Chinese Grand Prix,"Shanghai International Circuit, Shanghai",2025-03-23,False,1.0,100,24.38,100.0,-0.56,False,7.0,True
+2025_R20,2025,20,Mexico City Grand Prix,"Autódromo Hermanos Rodríguez, Mexico City",2025-10-26,False,0.66,100,26.75,151.61,-0.51,False,14.0,True
+2025_R21,2025,21,São Paulo Grand Prix,"Interlagos Circuit, São Paulo",2025-11-09,False,2.02,100,31.12,49.47,-0.6,False,1.0,True
+2025_R22,2025,22,Las Vegas Grand Prix,"Las Vegas Strip Circuit, Paradise, Nevada",2025-11-22,False,1.32,45,13.62,34.11,-0.61,False,24.0,True
+2025_R23,2025,23,Qatar Grand Prix,"Lusail International Circuit, Lusail",2025-11-30,False,0.66,100,22.88,151.61,-0.51,False,24.0,True
+2025_R24,2025,24,Abu Dhabi Grand Prix,"Yas Marina Circuit, Abu Dhabi",2025-12-07,False,0.74,100,27.88,134.29,-0.53,False,12.0,True
+2025_R3,2025,3,Japanese Grand Prix,"Suzuka Circuit, Suzuka",2025-04-06,False,0.23,100,28.0,427.27,-0.27,False,8.0,True
+2025_R4,2025,4,Bahrain Grand Prix,"Bahrain International Circuit, Sakhir",2025-04-13,False,0.7,100,24.25,142.42,-0.52,False,1.0,True
+2025_R5,2025,5,Saudi Arabian Grand Prix,"Jeddah Corniche Circuit, Jeddah",2025-04-20,False,1.0,100,24.88,100.0,-0.56,False,3.0,True
+2025_R6,2025,6,Miami Grand Prix,"Miami International Autodrome, Miami Gardens, Florida",2025-05-04,False,1.0,100,22.38,100.0,-0.56,False,10.0,True
+2025_R7,2025,7,Emilia Romagna Grand Prix,"Imola Circuit, Imola",2025-05-18,False,0.32,100,28.38,313.33,-0.37,False,16.0,True
+2025_R8,2025,8,Monaco Grand Prix,"Circuit de Monaco, Monaco",2025-05-25,False,1.15,100,20.5,87.04,-0.57,False,13.0,True
+2025_R9,2025,9,Spanish Grand Prix,"Circuit de Barcelona-Catalunya, Montmeló",2025-06-01,False,0.45,100,20.38,223.81,-0.45,False,3.0,True

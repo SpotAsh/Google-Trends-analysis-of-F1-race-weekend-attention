@@ -138,7 +138,7 @@ integration_summary = pd.DataFrame([
      "reason": "Races where Trends returned no data after all retries/fallback queries exhausted (0 after bracket-stripping fix; previously 6 races affected by a date-parsing bug, now resolved)."},
     {"stage": "Championship gap computed", "n_races": races_with_gap,
      "n_lost_this_stage": races_with_trends - races_with_gap,
-     "reason": "Season-opening races (round 1) have no prior standings — structural, affects exactly 4 races (one per season)."},
+     "reason": "Season-opening races (round 1) have no prior standings — structural, one race per season (including 2020)."},
     {"stage": "Matched to an Airbnb city (slug assigned)", "n_races": races_airbnb_matched,
      "n_lost_this_stage": races_with_trends - races_airbnb_matched,
      "reason": "Race's host circuit is in a city/town Inside Airbnb doesn't cover (confirmed for 13 of 25 unique circuits — mostly small towns)."},

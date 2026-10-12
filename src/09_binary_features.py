@@ -14,6 +14,10 @@ PROCESSED_DIR = Path("data/processed")
 df = pd.read_csv(PROCESSED_DIR / "f1_final_features.csv")
 print(f"Loaded {len(df)} races, {len(df.columns)} columns")
 
+if "is_covid_season" not in df.columns:
+    df["is_covid_season"] = df["season"].astype(int) == 2020
+df["is_covid_season"] = df["is_covid_season"].fillna(False).astype(bool)
+
 # --- Circuit type (street vs. permanent) ---
 # Hardcoded mapping — only ~25 unique circuits across the dataset, derived
 # from each circuit's Wikipedia infobox classification.
@@ -50,7 +54,7 @@ df_encoded["is_high_listing_count"] = (
 
 # Already boolean/derived upstream — carried through as-is:
 # is_anomaly_candidate, is_iso_anomaly, is_lof_anomaly,
-# is_high_confidence_anomaly, is_close_championship_race
+# is_high_confidence_anomaly, is_close_championship_race, is_covid_season
 
 # --- Assemble final binary table ---
 binary_cols = [
@@ -62,6 +66,7 @@ binary_cols = [
     "is_lof_anomaly",
     "is_high_confidence_anomaly",
     "is_close_championship_race",
+    "is_covid_season",
     "has_airbnb_data",
     "is_high_airbnb_price",
     "is_high_listing_count",

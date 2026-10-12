@@ -12,12 +12,14 @@ without any special-casing.
 
 Also includes: retry logic with backoff for transient API failures, and a
 query-string fallback list for races whose default "{Grand Prix name}" query
-is known to be flaky on Trends (currently just Las Vegas, which failed
-outright before the bracket fix was identified — kept as a defensive
-measure in case it resurfaces).
+is known to be flaky on Trends (Las Vegas, plus 2020 one-off titles such as
+"70th Anniversary Grand Prix" whose leading numeral can tokenize poorly).
+Previously pulled race_id cache files are reused so earlier years are not
+re-downloaded when 2020 is added.
 """
 
 import random
+import re
 import time
 from pathlib import Path
 import pandas as pd
@@ -48,7 +50,26 @@ master_trends_list = []
 
 QUERY_OVERRIDES = {
     "Las Vegas Grand Prix": ["Las Vegas Grand Prix", "Las Vegas Grand Prix F1", "F1 Las Vegas"],
+    # 2020 one-offs: leading numerals / obscure titles can come back empty or
+    # unparseable from Trends; F1-suffixed fallbacks keep the payload clean.
+    "70th Anniversary Grand Prix": [
+        "70th Anniversary Grand Prix",
+        "70th Anniversary Grand Prix F1",
+        "F1 70th Anniversary",
+    ],
+    "Styrian Grand Prix": ["Styrian Grand Prix", "Styrian Grand Prix F1", "F1 Styria"],
+    "Tuscan Grand Prix": ["Tuscan Grand Prix", "Tuscan Grand Prix F1", "F1 Mugello"],
+    "Eifel Grand Prix": ["Eifel Grand Prix", "Eifel Grand Prix F1", "F1 Nurburgring"],
+    "Sakhir Grand Prix": ["Sakhir Grand Prix", "Sakhir Grand Prix F1", "F1 Sakhir"],
 }
+
+
+def sanitize_query(name):
+    """Strip wiki footnotes and collapse whitespace so pytrends gets a token."""
+    q = str(name).replace("\xa0", " ")
+    q = re.sub(r"\[.*?\]", "", q)
+    q = re.sub(r"\s+", " ", q).strip()
+    return q
 
 
 def fetch_with_retries(query, timeframe, max_retries=3):
@@ -78,7 +99,7 @@ for idx, row in races_df.iterrows():
     season = str(row["season"]).strip()
     round_num = str(row["Round"]).strip()
     race_id = f"{season}_R{round_num}"
-    city = str(row["Grand Prix"]).strip()
+    city = sanitize_query(row["Grand Prix"])
     raw_date_str = str(row["Race date"]).strip()
     full_date_str = f"{raw_date_str} {season}"
 
@@ -108,7 +129,8 @@ for idx, row in races_df.iterrows():
 
     print(f"[{idx+1}/{len(races_df)}] Fetching '{city}' ({race_id}) | Window: {start_date} to {end_date}")
 
-    queries_to_try = QUERY_OVERRIDES.get(city, [city])
+    queries_to_try = [sanitize_query(q) for q in QUERY_OVERRIDES.get(city, [city])]
+    queries_to_try = [q for q in queries_to_try if q]
     interest_df = pd.DataFrame()
     query_used = None
     final_error = None

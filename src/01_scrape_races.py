@@ -1,20 +1,23 @@
 """
 01_scrape_races.py
 
-Scrapes Wikipedia to build the F1 race calendar for 2016-2025, EXCLUDING 2020.
+Scrapes Wikipedia to build the F1 race calendar for 2016-2025, INCLUDING 2020.
 
 Why 2016+: gives three seasons (2016-2018) before Netflix's "Drive to Survive"
 (first season released March 2019) shifted baseline interest, plus 2021 (the
 Hamilton-Verstappen title fight, the closest recent season) and 2022 (a
 deliberate blowout contrast case: Verstappen clinched early).
 
-Why not 2020: a COVID-shortened season (17 races, mostly behind closed doors,
-several one-off venues). Its search patterns are not comparable, so it is
-dropped entirely rather than modelled.
+2020 is a COVID-shortened season (17 races, mostly behind closed doors, several
+one-off venues). It is kept so the dataset covers 2016-2025 continuously, but
+downstream scripts flag it with is_covid_season rather than treating it as a
+typical attendance/search year.
 
-Wikipedia calendar tables are NOT identical across years: 2016/2019 label the
-date column "Date" while 2021+ label it "Race date". This script normalizes
-the column to "Race date" so 02/03 work for every season unchanged.
+Wikipedia calendar tables are NOT identical across years: 2016/2019/2020 label
+the date column "Date" while 2021+ label it "Race date". This script normalizes
+the column to "Race date" so 02/03 work for every season unchanged. 2020 also
+uses rowspans for back-to-back races at the same circuit (Styrian, 70th
+Anniversary, Sakhir), which must be forward-filled.
 """
 
 from pathlib import Path
@@ -26,7 +29,11 @@ RAW_DIR = Path("data/raw")
 OUTPUT_FILE = RAW_DIR / "races.csv"
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 
-YEARS = [y for y in range(2016, 2026) if y != 2020]
+YEARS = list(range(2016, 2026))
+EXPECTED_ROUNDS = {
+    2016: 21, 2017: 20, 2018: 21, 2019: 21, 2020: 17,
+    2021: 22, 2022: 22, 2023: 22, 2024: 24, 2025: 24,
+}
 urls = {y: f"https://en.wikipedia.org/wiki/{y}_Formula_One_World_Championship" for y in YEARS}
 
 HEADERS = {
@@ -34,31 +41,74 @@ HEADERS = {
 }
 
 
-def find_calendar_table(tables):
-    """First table that has Round + Grand Prix + Circuit + a date column."""
+def _flatten_columns(df):
+    """Wikipedia tables sometimes arrive as a MultiIndex (rowspan headers)."""
+    if isinstance(df.columns, pd.MultiIndex):
+        df = df.copy()
+        df.columns = [
+            " ".join(str(x) for x in tup if str(x) != "nan").strip() for tup in df.columns
+        ]
+    return df
+
+
+def _n_numeric_rounds(series):
+    return pd.to_numeric(
+        series.astype(str).str.replace(r"\[.*?\]", "", regex=True), errors="coerce"
+    ).notna().sum()
+
+
+def _normalize_calendar(df):
+    cols = [str(c).strip() for c in df.columns]
+    low = [c.lower() for c in cols]
+    has_round = any(c == "round" for c in low)
+    has_gp = any("grand prix" in c for c in low)
+    has_circuit = any("circuit" in c or "venue" in c for c in low)
+    has_date = any("date" in c for c in low)
+    if not (has_round and has_gp and has_circuit and has_date):
+        return None
+
+    out = df.copy()
+    out.columns = cols
+    date_col = [c for c in cols if "date" in c.lower()][0]
+    out = out.rename(columns={date_col: "Race date"})
+    for c in list(out.columns):
+        if c.lower() == "round":
+            out = out.rename(columns={c: "Round"})
+        elif "grand prix" in c.lower() and c != "Grand Prix":
+            out = out.rename(columns={c: "Grand Prix"})
+        elif ("circuit" in c.lower() or "venue" in c.lower()) and c != "Circuit":
+            out = out.rename(columns={c: "Circuit"})
+
+    out = out[["Round", "Grand Prix", "Circuit", "Race date"]].copy()
+    # 2020 back-to-back races share a circuit via rowspan; pandas leaves those blank.
+    out["Circuit"] = out["Circuit"].replace(r"^\s*$", pd.NA, regex=True).ffill()
+    return out
+
+
+def find_calendar_table(tables, expected_rounds=None):
+    """Pick the race calendar table for a season.
+
+    2020's Wikipedia page has both the revised 17-round calendar and (later)
+    original/cancelled listings. Prefer the table whose numeric round count
+    matches the known season length so we do not scrape cancelled races or
+    trip length checks that used to assume 197 races (2016-2025 excl. 2020).
+    """
+    candidates = []
     for df in tables:
-        cols = [str(c).strip() for c in df.columns]
-        low = [c.lower() for c in cols]
-        has_round = any(c == "round" for c in low)
-        has_gp = any("grand prix" in c for c in low)
-        has_circuit = any("circuit" in c or "venue" in c for c in low)
-        has_date = any("date" in c for c in low)
-        if has_round and has_gp and has_circuit and has_date:
-            out = df.copy()
-            out.columns = cols
-            # Normalize the date column name ("Date" in 2016/2019, "Race date" in 2021+)
-            date_col = [c for c in cols if "date" in c.lower()][0]
-            out = out.rename(columns={date_col: "Race date"})
-            # Normalize the other names too, in case of stray whitespace/case
-            for c in list(out.columns):
-                if c.lower() == "round":
-                    out = out.rename(columns={c: "Round"})
-                elif "grand prix" in c.lower() and c != "Grand Prix":
-                    out = out.rename(columns={c: "Grand Prix"})
-                elif ("circuit" in c.lower() or "venue" in c.lower()) and c != "Circuit":
-                    out = out.rename(columns={c: "Circuit"})
-            return out[["Round", "Grand Prix", "Circuit", "Race date"]]
-    return None
+        cal = _normalize_calendar(_flatten_columns(df))
+        if cal is None:
+            continue
+        n_numeric = _n_numeric_rounds(cal["Round"])
+        candidates.append((n_numeric, cal))
+
+    if not candidates:
+        return None
+    if expected_rounds is not None:
+        exact = [cal for n, cal in candidates if n == expected_rounds]
+        if exact:
+            return exact[0]
+    valid = [(n, cal) for n, cal in candidates if 8 <= n <= 24]
+    return (valid or candidates)[0][1]
 
 
 all_tables = []
@@ -69,14 +119,12 @@ for season, url in urls.items():
         response = requests.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         tables = pd.read_html(io.StringIO(response.text))
-        cal = find_calendar_table(tables)
+        cal = find_calendar_table(tables, expected_rounds=EXPECTED_ROUNDS.get(season))
         if cal is None:
             print(f"  [WARNING] No calendar table found for {season}")
             continue
         cal["season"] = season
-        n_numeric = pd.to_numeric(
-            cal["Round"].astype(str).str.replace(r"\[.*?\]", "", regex=True), errors="coerce"
-        ).notna().sum()
+        n_numeric = _n_numeric_rounds(cal["Round"])
         print(f"  found calendar table: {len(cal)} rows ({n_numeric} with numeric round)")
         all_tables.append(cal)
     except Exception as e:
@@ -90,11 +138,11 @@ if all_tables:
     real = races_df[pd.to_numeric(
         races_df["Round"].astype(str).str.replace(r"\[.*?\]", "", regex=True), errors="coerce").notna()]
     counts = real.groupby("season").size()
-    print("\nReal races per season (expected: 2016=21, 2017=20, 2018=21, 2019=21, 2021=22, "
-          "2022=22, 2023=22, 2024=24, 2025=24):")
+    print("\nReal races per season (expected: 2016=21, 2017=20, 2018=21, 2019=21, 2020=17, "
+          "2021=22, 2022=22, 2023=22, 2024=24, 2025=24; total 214, was 197 without 2020):")
     print(counts)
-    expected = {2016: 21, 2017: 20, 2018: 21, 2019: 21, 2021: 22, 2022: 22, 2023: 22, 2024: 24, 2025: 24}
-    for s, n in expected.items():
+    print(f"Total real races: {int(counts.sum())} (expected {sum(EXPECTED_ROUNDS.values())})")
+    for s, n in EXPECTED_ROUNDS.items():
         got = int(counts.get(s, 0))
         if got != n:
             print(f"  [CHECK] {s}: got {got}, expected {n}")

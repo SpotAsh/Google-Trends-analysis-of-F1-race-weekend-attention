@@ -10,7 +10,7 @@ trends_master.csv,race_id,0,0.0,N/A (no missing values)
 trends_master.csv,grand_prix,0,0.0,N/A (no missing values)
 trends_master.csv,season,0,0.0,N/A (no missing values)
 trends_master.csv,round,0,0.0,N/A (no missing values)
-trends_master.csv,query_used,5824,0.3265,No systematic reason identified; appears incidental.
+trends_master.csv,query_used,5824,0.3005,No systematic reason identified; appears incidental.
 airbnb_raw.csv,race_id,0,0.0,N/A (no missing values)
 airbnb_raw.csv,circuit,0,0.0,N/A (no missing values)
 airbnb_raw.csv,city_matched_name,0,0.0,N/A (no missing values)
@@ -34,14 +34,15 @@ f1_anomalies_detected.csv,round_num,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,grand_prix,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,circuit,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,race_date,0,0.0,N/A (no missing values)
+f1_anomalies_detected.csv,is_covid_season,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,baseline_search_mean,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,race_week_peak,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,race_week_mean,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,spike_factor,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,spike_zscore,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,is_anomaly_candidate,0,0.0,N/A (no missing values)
-f1_anomalies_detected.csv,championship_gap_entering_race,9,0.0459,"Season-opening races (round 1) have no prior-round standings to compute a gap from — structural, not a retrieval failure."
-f1_anomalies_detected.csv,is_close_championship_race,9,0.0459,Same as above (derived directly from championship_gap_entering_race).
+f1_anomalies_detected.csv,championship_gap_entering_race,10,0.0469,"Season-opening races (round 1) have no prior-round standings to compute a gap from — structural, not a retrieval failure."
+f1_anomalies_detected.csv,is_close_championship_race,10,0.0469,Same as above (derived directly from championship_gap_entering_race).
 f1_anomalies_detected.csv,iso_forest_anomaly,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,is_iso_anomaly,0,0.0,N/A (no missing values)
 f1_anomalies_detected.csv,is_lof_anomaly,0,0.0,N/A (no missing values)

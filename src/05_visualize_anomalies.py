@@ -43,7 +43,7 @@ for idx, (_, row) in enumerate(anomalies.iterrows()):
         f"{row['grand_prix']} ({row['season']})",
         fontsize=10, fontweight="bold", color="darkred",
     )
-plt.title("F1 Race Search Spikes vs. Peak Interest (2016–2025, excl. 2020)", fontsize=14, pad=15)
+plt.title("F1 Race Search Spikes vs. Peak Interest (2016–2025, incl. 2020 COVID season)", fontsize=14, pad=15)
 plt.xlabel("Race Week Peak Search Volume", fontsize=12)
 plt.ylabel("Spike Factor (Peak / Baseline)", fontsize=12)
 plt.legend(loc="upper left")

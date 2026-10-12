@@ -2,9 +2,10 @@
 03_preprocessing.py
 
 Merges races + trends, engineers search-interest features (baseline, peak,
-spike factor, z-score) — same as before — and ADDS a new feature:
-championship_gap_entering_race, the points gap between P1 and P2 in the
-Drivers' Championship standings as of the round BEFORE this race.
+spike factor, z-score) — same as before — and ADDS:
+championship_gap_entering_race (P1-P2 gap entering the race) and
+is_covid_season (True for 2020, so models can separate pandemic-era
+behind-closed-doors weekends from other years).
 
 Rationale: tests whether search-interest spikes correlate with how close
 the title fight is. 2022 (Verstappen won 19/22 races, decided by August) is
@@ -111,6 +112,7 @@ for race_id, group in merged_df.groupby("race_id"):
         "grand_prix": grand_prix,
         "circuit": circuit,
         "race_date": race_date,
+        "is_covid_season": int(season) == 2020,
         "baseline_search_mean": round(float(baseline_val), 2),
         "race_week_peak": int(race_week_peak) if pd.notna(race_week_peak) else 0,
         "race_week_mean": round(float(race_week_mean) if pd.notna(race_week_mean) else 0.0, 2),
@@ -137,6 +139,7 @@ features_df["spike_zscore"] = (
     (features_df["spike_factor"] - spike_mean) / (spike_std if spike_std > 0 else 1.0)
 ).round(2)
 features_df["is_anomaly_candidate"] = features_df["spike_zscore"] > 1.5
+features_df["is_covid_season"] = features_df["season"].astype(int) == 2020
 
 
 # --- NEW: championship points-gap feature via Jolpica-F1 API ---
@@ -145,7 +148,11 @@ features_df["is_anomaly_candidate"] = features_df["spike_zscore"] > 1.5
 GAP_CACHE_FILE = RAW_DIR / "standings_gap_cache.csv"
 if GAP_CACHE_FILE.exists():
     _c = pd.read_csv(GAP_CACHE_FILE)
-    GAP_CACHE = {(int(r.season), int(r.round)): float(r.gap) for r in _c.itertuples()}
+    GAP_CACHE = {
+        (int(r.season), int(r.round)): float(r.gap)
+        for r in _c.itertuples()
+        if pd.notna(r.gap)
+    }
 else:
     GAP_CACHE = {}
 
@@ -156,48 +163,75 @@ def _save_gap_cache():
     ).to_csv(GAP_CACHE_FILE, index=False)
 
 
+def _parse_gap_from_json(data):
+    """Defensive Jolpica/Ergast parser: empty lists and missing points must
+    not raise. 2020's rescheduled calendar can yield a 200 with no StandingsLists
+    for a round that never ran."""
+    if not isinstance(data, dict):
+        return None
+    lists = data.get("MRData", {}).get("StandingsTable", {}).get("StandingsLists") or []
+    if not lists:
+        return None
+    standings = lists[0].get("DriverStandings") or []
+    if len(standings) < 2:
+        return None
+    try:
+        p1_pts = float(standings[0].get("points"))
+        p2_pts = float(standings[1].get("points"))
+    except (TypeError, ValueError, KeyError):
+        return None
+    if pd.isna(p1_pts) or pd.isna(p2_pts):
+        return None
+    return round(p1_pts - p2_pts, 1)
+
+
+def _fetch_standings_json(season: int, standing_round: int):
+    url = f"https://api.jolpi.ca/ergast/f1/{season}/{standing_round}/driverStandings.json"
+    for attempt in range(1, 5):
+        try:
+            resp = requests.get(url, timeout=20)
+            if resp.status_code == 429:
+                wait = 10 * attempt
+                print(f"    [RATE LIMIT] {season} round {standing_round}; waiting {wait}s")
+                time.sleep(wait)
+                continue
+            if resp.status_code == 404:
+                return None
+            resp.raise_for_status()
+            return resp.json()
+        except Exception as e:
+            print(f"    [WARNING] Standings fetch failed for {season} round {standing_round} "
+                  f"(attempt {attempt}/4): {e}")
+            time.sleep(3 * attempt)
+    return None
+
+
 def get_championship_gap(season: int, round_num: int) -> float | None:
     """Points gap between P1 and P2 in the Drivers' Championship as of the
     round BEFORE this race. Round 1 of a season has no gap yet (preseason),
     returns None — document this as expected missingness for season openers,
-    not a data quality issue."""
+    not a data quality issue.
+
+    If round_num-1 has no standings (cancelled/rescheduled 2020 round), walk
+    backward until a populated StandingsList is found."""
     if round_num <= 1:
         return None
     key = (season, round_num)
     if key in GAP_CACHE:
         return GAP_CACHE[key]
 
-    url = f"https://api.jolpi.ca/ergast/f1/{season}/{round_num - 1}/driverStandings.json"
-    data = None
-    for attempt in range(1, 5):
-        try:
-            resp = requests.get(url, timeout=20)
-            if resp.status_code == 429:  # rate limited: back off and retry
-                wait = 10 * attempt
-                print(f"    [RATE LIMIT] {season} round {round_num - 1}; waiting {wait}s")
-                time.sleep(wait)
-                continue
-            resp.raise_for_status()
-            data = resp.json()
+    gap = None
+    for standing_round in range(round_num - 1, 0, -1):
+        data = _fetch_standings_json(season, standing_round)
+        gap = _parse_gap_from_json(data)
+        if gap is not None:
             break
-        except Exception as e:
-            print(f"    [WARNING] Standings fetch failed for {season} round {round_num - 1} "
-                  f"(attempt {attempt}/4): {e}")
-            time.sleep(3 * attempt)
-    if data is None:
-        return None
+        print(f"    [INFO] No standings at {season} round {standing_round}; "
+              "trying an earlier round (possible 2020 cancellation/reschedule).")
+        time.sleep(0.5)
 
-    lists = data.get("MRData", {}).get("StandingsTable", {}).get("StandingsLists", [])
-    if not lists:
+    if gap is None:
         return None
-
-    standings = lists[0].get("DriverStandings", [])
-    if len(standings) < 2:
-        return None
-
-    p1_pts = float(standings[0]["points"])
-    p2_pts = float(standings[1]["points"])
-    gap = round(p1_pts - p2_pts, 1)
     GAP_CACHE[key] = gap
     _save_gap_cache()
     return gap

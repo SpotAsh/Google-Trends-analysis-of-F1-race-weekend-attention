@@ -61,6 +61,11 @@ trends["date"] = pd.to_datetime(trends["date"], format="mixed", errors="coerce")
 feat = pd.read_csv(PROC / "f1_final_features.csv")
 feat["race_date"] = pd.to_datetime(feat["race_date"], errors="coerce")
 binf = pd.read_csv(PROC / "f1_binary_features.csv")
+if "is_covid_season" not in feat.columns:
+    feat["is_covid_season"] = feat["season"].astype(int) == 2020
+feat["is_covid_season"] = feat["is_covid_season"].map(
+    {True: True, False: False, "True": True, "False": False}
+).fillna(False).astype(bool)
 
 assert trends["date"].notna().all(), "unparseable trends dates"
 assert feat["race_date"].notna().all(), "unparseable race dates"
@@ -93,6 +98,7 @@ m = pd.DataFrame(rows)
 df = feat.merge(m, on="race_id", how="inner")
 df = df.merge(binf[["race_id", "circuit_type_street"]], on="race_id", how="left")
 df["is_street"] = df["circuit_type_street"].fillna(False).astype(bool)
+df["is_covid_season"] = df["is_covid_season"].fillna(False).astype(bool)
 df["is_close"] = df["is_close_championship_race"].map({True: True, False: False, "True": True, "False": False})
 df["log_spike_old"] = np.log1p(df["spike_factor"])
 df["log_baseline"] = np.log1p(df["baseline_mean"])
@@ -180,7 +186,8 @@ by_season = df.groupby("season").agg(
     median_baseline=("baseline_mean", "median"),
 ).round(2)
 say(by_season.to_string())
-groups = [g["lift_pts"].values for _, g in df.groupby("season")]
+groups = [g["lift_pts"].dropna().values for _, g in df.groupby("season")]
+groups = [g for g in groups if len(g) > 0]
 H, p_k = stats.kruskal(*groups)
 say(f"\nKruskal-Wallis across seasons (lift_pts): H = {H:.2f}, p = {p_k:.3f}")
 # Tight vs blowout seasons, defined by each season's median gap (lowest third
@@ -212,6 +219,14 @@ if len(pre) > 4 and len(post) > 4:
             r, p = stats.spearmanr(gg["championship_gap_entering_race"], gg["lift_pts"])
             say(f"  gap vs lift_pts within {label}: rho = {r:+.3f}, p = {p:.3f}, n = {len(gg)}")
 
+covid = df[df["is_covid_season"]]
+non_covid = df[~df["is_covid_season"]]
+if len(covid) > 0 and len(non_covid) > 4:
+    say(f"\n2020 COVID season (n={len(covid)}) vs other seasons (n={len(non_covid)}):")
+    for col in ["baseline_mean", "lift_pts", "race_week_share"]:
+        _, p = stats.mannwhitneyu(covid[col], non_covid[col], alternative="two-sided")
+        say(f"  {col:<16} median {covid[col].median():.2f} vs {non_covid[col].median():.2f}  (p = {p:.3f})")
+
 # ---------------------------------------------------------------- drivers
 say("\n" + "=" * 70)
 say("WHAT ELSE DRIVES THE LIFT? (Spearman with lift_pts)")
@@ -223,6 +238,7 @@ drivers = {
     "is_street_circuit": "is_street",
     "airbnb_price_snapshot_mean_usd": "airbnb_price_snapshot_mean_usd",
     "airbnb_listing_count": "airbnb_listing_count",
+    "is_covid_season": "is_covid_season",
 }
 drv_rows = []
 for label, col in drivers.items():
@@ -237,8 +253,12 @@ drv = pd.DataFrame(drv_rows)
 
 # Joint rank regression on races with a gap value (numpy OLS, standardized ranks).
 X_cols = ["baseline_mean", "championship_gap_entering_race", "round_num", "is_street"]
+if h["is_covid_season"].nunique() >= 2:
+    X_cols = X_cols + ["is_covid_season"]
 rr = h[X_cols + ["lift_pts"]].copy()
 rr["is_street"] = rr["is_street"].astype(float)
+if "is_covid_season" in rr.columns:
+    rr["is_covid_season"] = rr["is_covid_season"].astype(float)
 rk = rr.rank(pct=True)
 rk = (rk - rk.mean()) / rk.std(ddof=0)
 Xm = np.column_stack([np.ones(len(rk))] + [rk[c].values for c in X_cols])
@@ -301,7 +321,7 @@ ax.hist(df["lift_pts"], bins=20, color="#1f77b4", edgecolor="white")
 ax.axvline(df["lift_pts"].median(), color="k", ls="--", lw=1, label=f"median = {df['lift_pts'].median():.1f}")
 ax.set_xlabel("Race-week lift over baseline (index points)")
 ax.set_ylabel("Races")
-ax.set_title("Distribution of race-week lift (92 races)")
+ax.set_title(f"Distribution of race-week lift ({len(df)} races)")
 ax.legend(frameon=False)
 fig.tight_layout()
 fig.savefig(FIGS / "final_B_lift_distribution.png")
@@ -334,7 +354,7 @@ fig.savefig(FIGS / "final_D_close_vs_not.png")
 plt.close(fig)
 
 # Fig E: lift by season (2022 contrast)
-fig, ax = plt.subplots(figsize=(6, 4.2))
+fig, ax = plt.subplots(figsize=(8.5, 4.2))
 seasons = sorted(df["season"].unique())
 ax.boxplot([df[df["season"] == s]["lift_pts"].values for s in seasons],
            tick_labels=[str(s) for s in seasons], widths=0.5)

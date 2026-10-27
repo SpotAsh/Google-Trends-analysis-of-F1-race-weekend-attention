@@ -23,19 +23,19 @@ The project asks whether a tight championship fight makes the public pay more at
 ![Alt text](path/to/image.png)
 -->
 The metric that almost misled me: old spike ratio vs. corrected lift
-![Alt text](f1-economic-anomalies/reports/figures/final_A_old_vs_new_metric.png)
+![Alt text](reports/figures/final_A_old_vs_new_metric.png)
 
 Championship gap vs. race-week lift (no relationship)
-![Alt text](f1-economic-anomalies/reports/figures/final_C_gap_vs_lift.png)
+![Alt text](reports/figures/final_C_gap_vs_lift.png)
 
 Lift by season (the 2022 step)
-![Alt text](f1-economic-anomalies/reports/figures/final_E_lift_by_season.png)
+![Alt text](reports/figures/final_E_lift_by_season.png)
 
 Three clustering methods compared
-![Alt text](f1-economic-anomalies/reports/figures/mid2_clusters_three_methods.png)
+![Alt text](reports/figures/mid2_clusters_three_methods.png)
 
 Outlier detector agreement
-![Alt text](f1-economic-anomalies/reports/figures/mid2_outlier_agreement.png)
+![Alt text](reports/figures/mid2_outlier_agreement.png)
 
 ## Data
 

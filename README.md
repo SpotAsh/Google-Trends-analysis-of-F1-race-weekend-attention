@@ -4,7 +4,7 @@ An end-to-end data analysis of Google Trends search interest across **213 Formul
 
 The project asks whether a tight championship fight makes the public pay more attention to a race, and whether outside shocks (*Drive to Survive*, the 2020 pandemic season) changed the level of interest. It combines hypothesis testing, frequent pattern mining, clustering, dimensionality reduction and outlier detection in a reproducible Python pipeline.
 
-**Full write-up:** [`reports/What Drives Search Interest Around F1 Grand Prix Weekends Final Report (1).pdf`](reports/) (add a link to the final report PDF here)
+**Full write-up:** [`reports/What Drives Search Interest Around F1 Grand Prix Weekends Final Report (1).pdf`]
 
 ---
 
@@ -19,9 +19,23 @@ The project asks whether a tight championship fight makes the public pay more at
 
 <!-- Add one or two figures from reports/figures/ here, e.g.:
 ![Average search interest around race day](reports/figures/<your_figure>.png)
-![Alt text](path/to/image.png)
+
 ![Alt text](path/to/image.png)
 -->
+The metric that almost misled me: old spike ratio vs. corrected lift
+![Alt text](f1-economic-anomalies/reports/figures/final_A_old_vs_new_metric.png)
+
+Championship gap vs. race-week lift (no relationship)
+![Alt text](f1-economic-anomalies/reports/figures/final_C_gap_vs_lift.png)
+
+Lift by season (the 2022 step)
+![Alt text](f1-economic-anomalies/reports/figures/final_E_lift_by_season.png)
+
+Three clustering methods compared
+![Alt text](f1-economic-anomalies/reports/figures/mid2_clusters_three_methods.png)
+
+Outlier detector agreement
+![Alt text](f1-economic-anomalies/reports/figures/mid2_outlier_agreement.png)
 
 ## Data
 
@@ -115,4 +129,4 @@ Downloads are cached in `data/raw/`, so re-running does not hit the web APIs aga
 
 ## Author
 
-Penn State, M.S. Data Analytics. [Your name] · [LinkedIn] · [Email]
+Penn State, M.S. Data Analytics. [Aditya Mogullapalli] · [[LinkedIn](https://www.linkedin.com/in/aditya-mogullapalli-75879a369/)] · [Email](aditya.mogullapalli@gmail.com)

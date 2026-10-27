@@ -4,7 +4,7 @@ An end-to-end data analysis of Google Trends search interest across **213 Formul
 
 The project asks whether a tight championship fight makes the public pay more attention to a race, and whether outside shocks (*Drive to Survive*, the 2020 pandemic season) changed the level of interest. It combines hypothesis testing, frequent pattern mining, clustering, dimensionality reduction and outlier detection in a reproducible Python pipeline.
 
-**Full write-up:** [Final report (PDF)](reports/What Drives Search Interest Around F1 Grand Prix Weekends Final Report (1).pdf)
+[Final report (PDF)](reports/What%20Drives%20Search%20Interest%20Around%20F1%20Grand%20Prix%20Weekends%20Final%20Report%20%281%29.pdf)
 
 ---
 

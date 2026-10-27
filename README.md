@@ -129,4 +129,4 @@ Downloads are cached in `data/raw/`, so re-running does not hit the web APIs aga
 
 ## Author
 
-Penn State, M.S. Data Analytics. [Aditya Mogullapalli] · [[LinkedIn](https://www.linkedin.com/in/aditya-mogullapalli-75879a369/)] · [Email](aditya.mogullapalli@gmail.com)
+Penn State, M.S. Data Analytics. Aditya Mogullapalli · [LinkedIn](https://www.linkedin.com/in/aditya-mogullapalli-75879a369/) · [Email](aditya.mogullapalli@gmail.com)

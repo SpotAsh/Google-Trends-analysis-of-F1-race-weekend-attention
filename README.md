@@ -4,7 +4,7 @@ An end-to-end data analysis of Google Trends search interest across **213 Formul
 
 The project asks whether a tight championship fight makes the public pay more attention to a race, and whether outside shocks (*Drive to Survive*, the 2020 pandemic season) changed the level of interest. It combines hypothesis testing, frequent pattern mining, clustering, dimensionality reduction and outlier detection in a reproducible Python pipeline.
 
-**Full write-up:** [`reports/What Drives Search Interest Around F1 Grand Prix Weekends Final Report (1).pdf`]
+**Full write-up:** [Final report (PDF)](reports/f1_search_interest_final_report.pdf)
 
 ---
 
@@ -17,25 +17,27 @@ The project asks whether a tight championship fight makes the public pay more at
 - **Race weekends form three soft types** (silhouette 0.37) that follow circuit type and season, not the title fight: established year-round interest (e.g. Monaco), high-surge, and event-only.
 - **Most outliers are measurement artifacts.** Of 11 consensus outliers, three Las Vegas races are explained by Saturday-night timing (verified by shifting the window), and two São Paulo races look like very low search volume.
 
-<!-- Add one or two figures from reports/figures/ here, e.g.:
-![Average search interest around race day](reports/figures/<your_figure>.png)
+### Selected figures
 
-![Alt text](path/to/image.png)
--->
-The metric that almost misled me: old spike ratio vs. corrected lift
-![Alt text](reports/figures/final_A_old_vs_new_metric.png)
+**The metric that almost misled me: old spike ratio vs. corrected lift**
 
-Championship gap vs. race-week lift (no relationship)
-![Alt text](reports/figures/final_C_gap_vs_lift.png)
+![Old vs new metric](reports/figures/final_A_old_vs_new_metric.png)
 
-Lift by season (the 2022 step)
-![Alt text](reports/figures/final_E_lift_by_season.png)
+**Championship gap vs. race-week lift (no relationship)**
 
-Three clustering methods compared
-![Alt text](reports/figures/mid2_clusters_three_methods.png)
+![Championship gap vs lift](reports/figures/final_C_gap_vs_lift.png)
 
-Outlier detector agreement
-![Alt text](reports/figures/mid2_outlier_agreement.png)
+**Lift by season (the 2022 step)**
+
+![Lift by season](reports/figures/final_E_lift_by_season.png)
+
+**Three clustering methods compared**
+
+![Clusters from three methods](reports/figures/mid2_clusters_three_methods.png)
+
+**Outlier detector agreement**
+
+![Outlier agreement](reports/figures/mid2_outlier_agreement.png)
 
 ## Data
 
@@ -60,14 +62,12 @@ The project began as a study of local economic impact (hotel and Airbnb prices).
 ## Repository structure
 
 ```
-f1-economic-anomalies/
+Google-Trends-analysis-of-F1-race-weekend-attention/
 ├── data/
 │   ├── raw/          # scraped races, Trends pulls, standings cache, Airbnb files
 │   └── processed/    # merged and engineered feature tables
 ├── src/              # numbered pipeline scripts (see below)
-├── notebook/         # exploratory notebooks
-├── outputs/          # intermediate outputs
-├── reports/          # final report, result tables and figures
+├── reports/          # final report PDF, result tables and figures
 ├── requirements.txt
 └── README.md
 ```
@@ -129,4 +129,4 @@ Downloads are cached in `data/raw/`, so re-running does not hit the web APIs aga
 
 ## Author
 
-Penn State, M.S. Data Analytics. Aditya Mogullapalli · [LinkedIn](https://www.linkedin.com/in/aditya-mogullapalli-75879a369/) · [Email](aditya.mogullapalli@gmail.com)
+Aditya Mogullapalli, M.S. Data Analytics, Penn State · [LinkedIn](https://www.linkedin.com/in/aditya-mogullapalli-75879a369/) · [Email](mailto:aditya.mogullapalli@gmail.com)
